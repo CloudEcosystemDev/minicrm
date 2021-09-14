@@ -3210,7 +3210,7 @@ var App = (function () {
 
 	function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-	function create_if_block$7(ctx) {
+	function create_if_block$8(ctx) {
 	  var div;
 	  var t;
 	  return {
@@ -3259,7 +3259,7 @@ var App = (function () {
 	  /*manageFocus*/
 	  ctx[4] &&
 	  /*a11yConfig*/
-	  ctx[1].announcements && create_if_block$7(ctx);
+	  ctx[1].announcements && create_if_block$8(ctx);
 	  return {
 	    c: function c() {
 	      div = element("div");
@@ -3859,7 +3859,7 @@ var App = (function () {
 	}; // (97:0) {#if isActive}
 
 
-	function create_if_block$6(ctx) {
+	function create_if_block$7(ctx) {
 	  var router;
 	  var current;
 	  router = new Router$1({
@@ -3918,7 +3918,7 @@ var App = (function () {
 	} // (113:2) {:else}
 
 
-	function create_else_block$1(ctx) {
+	function create_else_block$2(ctx) {
 	  var current;
 	  var default_slot_template =
 	  /*#slots*/
@@ -3968,7 +3968,7 @@ var App = (function () {
 	} // (105:2) {#if component !== null}
 
 
-	function create_if_block_1$3(ctx) {
+	function create_if_block_1$4(ctx) {
 	  var switch_instance;
 	  var switch_instance_anchor;
 	  var current;
@@ -4093,7 +4093,7 @@ var App = (function () {
 	  var if_block;
 	  var if_block_anchor;
 	  var current;
-	  var if_block_creators = [create_if_block_1$3, create_else_block$1];
+	  var if_block_creators = [create_if_block_1$4, create_else_block$2];
 	  var if_blocks = [];
 
 	  function select_block_type(ctx, dirty) {
@@ -4164,7 +4164,7 @@ var App = (function () {
 	  var current;
 	  var if_block =
 	  /*isActive*/
-	  ctx[2] && create_if_block$6(ctx);
+	  ctx[2] && create_if_block$7(ctx);
 	  return {
 	    c: function c() {
 	      div0 = element("div");
@@ -4207,7 +4207,7 @@ var App = (function () {
 	            transition_in(if_block, 1);
 	          }
 	        } else {
-	          if_block = create_if_block$6(ctx);
+	          if_block = create_if_block$7(ctx);
 	          if_block.c();
 	          transition_in(if_block, 1);
 	          if_block.m(t1.parentNode, t1);
@@ -4464,14 +4464,14 @@ var App = (function () {
 
 	function _isNativeReflectConstruct$j() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
-	function create_if_block$5(ctx) {
+	function create_if_block$6(ctx) {
 	  var div;
 	  var backbutton;
 	  var current;
 	  backbutton = new BackButton({});
 	  backbutton.$on("click",
 	  /*onBackButtonClick*/
-	  ctx[1]);
+	  ctx[2]);
 	  return {
 	    c: function c() {
 	      div = element("div");
@@ -4511,7 +4511,7 @@ var App = (function () {
 	  var dispose;
 	  var if_block =
 	  /*active*/
-	  ctx[0] && create_if_block$5(ctx);
+	  ctx[0] && create_if_block$6(ctx);
 	  return {
 	    c: function c() {
 	      div2 = element("div");
@@ -4522,12 +4522,21 @@ var App = (function () {
 	      t2 = space();
 	      div1 = element("div");
 	      div1.textContent = "My Active Flows";
-	      attr(div0, "class", "title svelte-xb2ngz");
-	      attr(div1, "class", "flows-link svelte-xb2ngz");
+	      attr(div0, "class", "title svelte-1lqkwaz");
+	      toggle_class(div0, "title-breakpoint",
+	      /*breakpoint*/
+	      ctx[1]);
+	      attr(div1, "class", "flows-link svelte-1lqkwaz");
+	      toggle_class(div1, "link-breakpoint",
+	      /*breakpoint*/
+	      ctx[1]);
 	      toggle_class(div1, "active",
 	      /*active*/
 	      ctx[0]);
-	      attr(div2, "class", "title-bar svelte-xb2ngz");
+	      attr(div2, "class", "title-bar svelte-1lqkwaz");
+	      toggle_class(div2, "breakpoint",
+	      /*breakpoint*/
+	      ctx[1]);
 	    },
 	    m: function m(target, anchor) {
 	      insert(target, div2, anchor);
@@ -4541,7 +4550,7 @@ var App = (function () {
 	      if (!mounted) {
 	        dispose = listen(div1, "click",
 	        /*toActiveFlows*/
-	        ctx[2]);
+	        ctx[3]);
 	        mounted = true;
 	      }
 	    },
@@ -4561,7 +4570,7 @@ var App = (function () {
 	            transition_in(if_block, 1);
 	          }
 	        } else {
-	          if_block = create_if_block$5(ctx);
+	          if_block = create_if_block$6(ctx);
 	          if_block.c();
 	          transition_in(if_block, 1);
 	          if_block.m(div2, t0);
@@ -4575,11 +4584,35 @@ var App = (function () {
 	      }
 
 	      if (dirty &
+	      /*breakpoint*/
+	      2) {
+	        toggle_class(div0, "title-breakpoint",
+	        /*breakpoint*/
+	        ctx[1]);
+	      }
+
+	      if (dirty &
+	      /*breakpoint*/
+	      2) {
+	        toggle_class(div1, "link-breakpoint",
+	        /*breakpoint*/
+	        ctx[1]);
+	      }
+
+	      if (dirty &
 	      /*active*/
 	      1) {
 	        toggle_class(div1, "active",
 	        /*active*/
 	        ctx[0]);
+	      }
+
+	      if (dirty &
+	      /*breakpoint*/
+	      2) {
+	        toggle_class(div2, "breakpoint",
+	        /*breakpoint*/
+	        ctx[1]);
 	      }
 	    },
 	    i: function i(local) {
@@ -4601,9 +4634,11 @@ var App = (function () {
 	}
 
 	function instance$g($$self, $$props, $$invalidate) {
+	  var breakpoint;
 	  var navigate = $$props.navigate;
 	  var _$$props$isPreviewMod = $$props.isPreviewMode,
 	      isPreviewMode = _$$props$isPreviewMod === void 0 ? false : _$$props$isPreviewMod;
+	  var elemWidth = $$props.elemWidth;
 	  var active = false;
 
 	  var onBackButtonClick = function onBackButtonClick() {
@@ -4612,16 +4647,25 @@ var App = (function () {
 	  };
 
 	  var toActiveFlows = function toActiveFlows() {
-	    if (!active && !isPreviewMode) $$invalidate(0, active = true);
-	    if (!isPreviewMode) navigate("/active-flows");
+	    $$invalidate(0, active = true);
+	    navigate("/active-flows");
 	  };
 
 	  $$self.$$set = function ($$props) {
-	    if ('navigate' in $$props) $$invalidate(3, navigate = $$props.navigate);
-	    if ('isPreviewMode' in $$props) $$invalidate(4, isPreviewMode = $$props.isPreviewMode);
+	    if ('navigate' in $$props) $$invalidate(4, navigate = $$props.navigate);
+	    if ('isPreviewMode' in $$props) $$invalidate(5, isPreviewMode = $$props.isPreviewMode);
+	    if ('elemWidth' in $$props) $$invalidate(6, elemWidth = $$props.elemWidth);
 	  };
 
-	  return [active, onBackButtonClick, toActiveFlows, navigate, isPreviewMode];
+	  $$self.$$.update = function () {
+	    if ($$self.$$.dirty &
+	    /*elemWidth*/
+	    64) {
+	      $$invalidate(1, breakpoint = elemWidth < 672 ? true : false);
+	    }
+	  };
+
+	  return [active, breakpoint, onBackButtonClick, toActiveFlows, navigate, isPreviewMode, elemWidth];
 	}
 
 	var Header = /*#__PURE__*/function (_SvelteComponent) {
@@ -4636,8 +4680,9 @@ var App = (function () {
 
 	    _this = _super.call(this);
 	    init(_assertThisInitialized(_this), options, instance$g, create_fragment$j, safe_not_equal, {
-	      navigate: 3,
-	      isPreviewMode: 4
+	      navigate: 4,
+	      isPreviewMode: 5,
+	      elemWidth: 6
 	    });
 	    return _this;
 	  }
@@ -5135,7 +5180,7 @@ var App = (function () {
 	} // (70:0) {#if shown}
 
 
-	function create_if_block$4(ctx) {
+	function create_if_block$5(ctx) {
 	  var div5;
 	  var div4;
 	  var div3;
@@ -5177,7 +5222,7 @@ var App = (function () {
 
 	  var if_block =
 	  /*finished*/
-	  ctx[6] && create_if_block_1$2();
+	  ctx[6] && create_if_block_1$3();
 	  return {
 	    c: function c() {
 	      div5 = element("div");
@@ -5298,7 +5343,7 @@ var App = (function () {
 	            transition_in(if_block, 1);
 	          }
 	        } else {
-	          if_block = create_if_block_1$2();
+	          if_block = create_if_block_1$3();
 	          if_block.c();
 	          transition_in(if_block, 1);
 	          if_block.m(div2, null);
@@ -5911,7 +5956,7 @@ var App = (function () {
 	} // (130:10) {#if finished}
 
 
-	function create_if_block_1$2(ctx) {
+	function create_if_block_1$3(ctx) {
 	  var div;
 	  var button;
 	  var current;
@@ -5955,7 +6000,7 @@ var App = (function () {
 	  var dispose;
 	  var if_block =
 	  /*shown*/
-	  ctx[0] && create_if_block$4(ctx);
+	  ctx[0] && create_if_block$5(ctx);
 	  return {
 	    c: function c() {
 	      if (if_block) if_block.c();
@@ -5989,7 +6034,7 @@ var App = (function () {
 	            transition_in(if_block, 1);
 	          }
 	        } else {
-	          if_block = create_if_block$4(ctx);
+	          if_block = create_if_block$5(ctx);
 	          if_block.c();
 	          transition_in(if_block, 1);
 	          if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -6153,6 +6198,17 @@ var App = (function () {
 	  return Modal;
 	}(SvelteComponent);
 
+	const hasSectionPreview = (section) => {
+	    var _a;
+	    return !(!(section === null || section === void 0 ? void 0 : section.previewSectionTagId) &&
+	        !((_a = section === null || section === void 0 ? void 0 : section.previewtaggedObjectIds) === null || _a === void 0 ? void 0 : _a.length) &&
+	        !(section === null || section === void 0 ? void 0 : section.previewEnabled));
+	};
+	const hasCategoryPreview = (category) => {
+	    var _a;
+	    return !(!((_a = category === null || category === void 0 ? void 0 : category.previewtaggedObjectIds) === null || _a === void 0 ? void 0 : _a.length) && !(category === null || category === void 0 ? void 0 : category.previewEnabled));
+	};
+
 	function _createSuper$d(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$d(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
 	function _isNativeReflectConstruct$d() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
@@ -6189,12 +6245,12 @@ var App = (function () {
 	      /*logo*/
 	      ctx[0])) attr(img, "src", img_src_value);
 	      attr(img, "alt", "pipedrive");
-	      attr(img, "class", "svelte-17ekldz");
-	      attr(div0, "class", "header svelte-17ekldz");
-	      attr(div1, "class", "description svelte-17ekldz");
-	      attr(div2, "class", "text svelte-17ekldz");
-	      attr(div3, "class", "inner svelte-17ekldz");
-	      attr(div4, "class", "card svelte-17ekldz");
+	      attr(img, "class", "svelte-6sh7vr");
+	      attr(div0, "class", "header svelte-6sh7vr");
+	      attr(div1, "class", "description svelte-6sh7vr");
+	      attr(div2, "class", "text svelte-6sh7vr");
+	      attr(div3, "class", "inner svelte-6sh7vr");
+	      attr(div4, "class", "card svelte-6sh7vr");
 	    },
 	    m: function m(target, anchor) {
 	      insert(target, div4, anchor);
@@ -6651,7 +6707,7 @@ var App = (function () {
 	}; // (19:4) {#if iconposition === 'left'}
 
 
-	function create_if_block_1$1(ctx) {
+	function create_if_block_1$2(ctx) {
 	  var current;
 	  var left_slot_template =
 	  /*#slots*/
@@ -6701,7 +6757,7 @@ var App = (function () {
 	} // (36:4) {#if iconposition === 'right'}
 
 
-	function create_if_block$3(ctx) {
+	function create_if_block$4(ctx) {
 	  var current;
 	  var right_slot_template =
 	  /*#slots*/
@@ -6760,10 +6816,10 @@ var App = (function () {
 	  var dispose;
 	  var if_block0 =
 	  /*iconposition*/
-	  ctx[5] === 'left' && create_if_block_1$1(ctx);
+	  ctx[5] === 'left' && create_if_block_1$2(ctx);
 	  var if_block1 =
 	  /*iconposition*/
-	  ctx[5] === 'right' && create_if_block$3(ctx);
+	  ctx[5] === 'right' && create_if_block$4(ctx);
 	  return {
 	    c: function c() {
 	      div = element("div");
@@ -6843,7 +6899,7 @@ var App = (function () {
 	            transition_in(if_block0, 1);
 	          }
 	        } else {
-	          if_block0 = create_if_block_1$1(ctx);
+	          if_block0 = create_if_block_1$2(ctx);
 	          if_block0.c();
 	          transition_in(if_block0, 1);
 	          if_block0.m(div, t0);
@@ -6934,7 +6990,7 @@ var App = (function () {
 	            transition_in(if_block1, 1);
 	          }
 	        } else {
-	          if_block1 = create_if_block$3(ctx);
+	          if_block1 = create_if_block$4(ctx);
 	          if_block1.c();
 	          transition_in(if_block1, 1);
 	          if_block1.m(div, null);
@@ -7136,141 +7192,30 @@ var App = (function () {
 	  return Search;
 	}(SvelteComponent);
 
-	var axios = (function e(t) {
-	  function r(e, t, n) {
-	    var a,
-	        o = {};
-	    if (Array.isArray(e)) return e.concat(t);
-
-	    for (a in e) {
-	      o[n ? a.toLowerCase() : a] = e[a];
-	    }
-
-	    for (a in t) {
-	      var i = n ? a.toLowerCase() : a,
-	          u = t[a];
-	      o[i] = i in o && "object" == _typeof(u) ? r(o[i], u, "headers" === i) : u;
-	    }
-
-	    return o;
-	  }
-
-	  function n(e, n, a, o) {
-	    "string" != typeof e && (e = (n = e).url);
-	    var i = {
-	      config: n
-	    },
-	        u = r(t, n),
-	        s = {},
-	        c = o || u.data;
-	    (u.transformRequest || []).map(function (e) {
-	      c = e(c, u.headers) || c;
-	    }), c && "object" == _typeof(c) && "function" != typeof c.append && (c = JSON.stringify(c), s["content-type"] = "application/json");
-	    var f = "undefined" != typeof document && document.cookie.match(RegExp("(^|; )" + u.xsrfCookieName + "=([^;]*)"));
-
-	    if (f && (s[u.xsrfHeaderName] = f[2]), u.auth && (s.authorization = u.auth), u.baseURL && (e = e.replace(/^(?!.*\/\/)\/?(.*)$/, u.baseURL + "/$1")), u.params) {
-	      var p = ~e.indexOf("?") ? "&" : "?";
-	      e += p + (u.paramsSerializer ? u.paramsSerializer(u.params) : new URLSearchParams(u.params));
-	    }
-
-	    return (u.fetch || fetch)(e, {
-	      method: a || u.method,
-	      body: c,
-	      headers: r(u.headers, s, !0),
-	      credentials: u.withCredentials ? "include" : "same-origin"
-	    }).then(function (e) {
-	      for (var t in e) {
-	        "function" != typeof e[t] && (i[t] = e[t]);
-	      }
-
-	      var r = u.validateStatus ? u.validateStatus(e.status) : e.ok;
-	      return "stream" == u.responseType ? (i.data = e.body, i) : e[u.responseType || "text"]().then(function (e) {
-	        i.data = e, i.data = JSON.parse(e);
-	      }).catch(Object).then(function () {
-	        return r ? i : Promise.reject(i);
-	      });
-	    });
-	  }
-
-	  return t = t || {}, n.request = n, n.get = function (e, t) {
-	    return n(e, t, "get");
-	  }, n.delete = function (e, t) {
-	    return n(e, t, "delete");
-	  }, n.head = function (e, t) {
-	    return n(e, t, "head");
-	  }, n.options = function (e, t) {
-	    return n(e, t, "options");
-	  }, n.post = function (e, t, r) {
-	    return n(e, r, "post", t);
-	  }, n.put = function (e, t, r) {
-	    return n(e, r, "put", t);
-	  }, n.patch = function (e, t, r) {
-	    return n(e, r, "patch", t);
-	  }, n.all = Promise.all.bind(Promise), n.spread = function (e) {
-	    return function (t) {
-	      return e.apply(this, t);
-	    };
-	  }, n.CancelToken = "function" == typeof AbortController ? AbortController : Object, n.defaults = t, n.create = e, n;
-	})();
-
-	const endpoint = "https://api.platform.openintegrationhub.com/icenter";
-	const getHeaders = (token) => ({
-	    mode: "no-cors",
-	    "Cache-Control": "no-cache, no-store, must-revalidate",
-	    Pragma: "no-cache",
-	    "Content-Type": "application/json",
-	    Accept: "application/json",
-	    Authorization: `Bearer ${token}`,
-	});
-	const getData = async (token) => {
-	    try {
-	        const response = await axios(`${endpoint}/application`, {
-	            method: "GET",
-	            headers: getHeaders(token),
-	        });
-	        return response.data.data;
-	    }
-	    catch (error) {
-	        console.error(error);
-	    }
-	};
-	const getFilters = async (token) => {
-	    try {
-	        const response = await axios(`${endpoint}/application/filters/`, {
-	            method: "GET",
-	            headers: getHeaders(token),
-	        });
-	        return response.data.data;
-	    }
-	    catch (error) {
-	        console.error(error);
-	    }
-	};
-
 	function _createSuper$8(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$8(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
 	function _isNativeReflectConstruct$8() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 	var Boolean_1$1 = globals.Boolean;
 
-	function get_each_context$3(ctx, list, i) {
+	function get_each_context_1$1(ctx, list, i) {
 	  var child_ctx = ctx.slice();
-	  child_ctx[19] = list[i];
-	  child_ctx[20] = list;
-	  child_ctx[21] = i;
+	  child_ctx[27] = list[i];
+	  child_ctx[28] = list;
+	  child_ctx[29] = i;
 	  return child_ctx;
 	}
 
-	function get_each_context_1$1(ctx, list, i) {
+	function get_each_context$3(ctx, list, i) {
 	  var child_ctx = ctx.slice();
-	  child_ctx[22] = list[i];
+	  child_ctx[24] = list[i];
 	  return child_ctx;
 	}
 
 	function get_each_context_2(ctx, list, i) {
 	  var child_ctx = ctx.slice();
-	  child_ctx[25] = list[i];
+	  child_ctx[30] = list[i];
 	  return child_ctx;
-	} // (57:6) 
+	} // (73:6) 
 
 
 	function create_right_slot(ctx) {
@@ -7303,60 +7248,14 @@ var App = (function () {
 	      destroy_component(search);
 	    }
 	  };
-	} // (66:8) {#each components as item}
+	} // (79:4) {#if showSection}
 
 
-	function create_each_block_2(ctx) {
-	  var componentcard;
-	  var current;
-	  componentcard = new ComponentCard({
-	    props: {
-	      component:
-	      /*item*/
-	      ctx[25]
-	    }
-	  });
-	  componentcard.$on("card-click",
-	  /*card_click_handler*/
-	  ctx[11]);
-	  return {
-	    c: function c() {
-	      create_component(componentcard.$$.fragment);
-	    },
-	    m: function m(target, anchor) {
-	      mount_component(componentcard, target, anchor);
-	      current = true;
-	    },
-	    p: function p(ctx, dirty) {
-	      var componentcard_changes = {};
-	      if (dirty &
-	      /*components*/
-	      8) componentcard_changes.component =
-	      /*item*/
-	      ctx[25];
-	      componentcard.$set(componentcard_changes);
-	    },
-	    i: function i(local) {
-	      if (current) return;
-	      transition_in(componentcard.$$.fragment, local);
-	      current = true;
-	    },
-	    o: function o(local) {
-	      transition_out(componentcard.$$.fragment, local);
-	      current = false;
-	    },
-	    d: function d(detaching) {
-	      destroy_component(componentcard, detaching);
-	    }
-	  };
-	} // (63:4) {#each filteredSections as section}
-
-
-	function create_each_block_1$1(ctx) {
+	function create_if_block_1$1(ctx) {
 	  var div0;
 	  var t0_value =
-	  /*section*/
-	  ctx[22].sectionTagName + "";
+	  /*firstSection*/
+	  ctx[2].sectionTagName + "";
 	  var t0;
 	  var t1;
 	  var div1;
@@ -7364,8 +7263,8 @@ var App = (function () {
 	  var div1_resize_listener;
 	  var current;
 	  var each_value_2 =
-	  /*components*/
-	  ctx[3];
+	  /*componentsObjects*/
+	  ctx[5];
 	  var each_blocks = [];
 
 	  for (var i = 0; i < each_value_2.length; i += 1) {
@@ -7389,14 +7288,14 @@ var App = (function () {
 	        each_blocks[_i].c();
 	      }
 
-	      attr(div0, "class", "feature-header svelte-ti21ll");
+	      attr(div0, "class", "feature-header svelte-nccfsr");
 	      attr(div1, "class", div1_class_value = "cards " +
 	      /*currentBreakpoint*/
-	      ctx[1] + " svelte-ti21ll");
+	      ctx[3] + " svelte-nccfsr");
 	      add_render_callback(function () {
 	        return (
 	          /*div1_elementresize_handler*/
-	          ctx[12].call(div1)
+	          ctx[16].call(div1)
 	        );
 	      });
 	    },
@@ -7412,22 +7311,22 @@ var App = (function () {
 
 	      div1_resize_listener = add_resize_listener(div1,
 	      /*div1_elementresize_handler*/
-	      ctx[12].bind(div1));
+	      ctx[16].bind(div1));
 	      current = true;
 	    },
 	    p: function p(ctx, dirty) {
-	      if ((!current || dirty &
-	      /*filteredSections*/
+	      if ((!current || dirty[0] &
+	      /*firstSection*/
 	      4) && t0_value !== (t0_value =
-	      /*section*/
-	      ctx[22].sectionTagName + "")) set_data(t0, t0_value);
+	      /*firstSection*/
+	      ctx[2].sectionTagName + "")) set_data(t0, t0_value);
 
-	      if (dirty &
-	      /*components*/
-	      8) {
+	      if (dirty[0] &
+	      /*componentsObjects*/
+	      32) {
 	        each_value_2 =
-	        /*components*/
-	        ctx[3];
+	        /*componentsObjects*/
+	        ctx[5];
 
 	        var _i3;
 
@@ -7458,11 +7357,11 @@ var App = (function () {
 	        check_outros();
 	      }
 
-	      if (!current || dirty &
+	      if (!current || dirty[0] &
 	      /*currentBreakpoint*/
-	      2 && div1_class_value !== (div1_class_value = "cards " +
+	      8 && div1_class_value !== (div1_class_value = "cards " +
 	      /*currentBreakpoint*/
-	      ctx[1] + " svelte-ti21ll")) {
+	      ctx[3] + " svelte-nccfsr")) {
 	        attr(div1, "class", div1_class_value);
 	      }
 	    },
@@ -7492,10 +7391,268 @@ var App = (function () {
 	      div1_resize_listener();
 	    }
 	  };
-	} // (73:6) {#each templates as flow (flow._id)}
+	} // (82:8) {#each componentsObjects as item}
 
 
-	function create_each_block$3(key_1, ctx) {
+	function create_each_block_2(ctx) {
+	  var componentcard;
+	  var current;
+	  componentcard = new ComponentCard({
+	    props: {
+	      component:
+	      /*item*/
+	      ctx[30]
+	    }
+	  });
+	  componentcard.$on("card-click",
+	  /*card_click_handler*/
+	  ctx[15]);
+	  return {
+	    c: function c() {
+	      create_component(componentcard.$$.fragment);
+	    },
+	    m: function m(target, anchor) {
+	      mount_component(componentcard, target, anchor);
+	      current = true;
+	    },
+	    p: function p(ctx, dirty) {
+	      var componentcard_changes = {};
+	      if (dirty[0] &
+	      /*componentsObjects*/
+	      32) componentcard_changes.component =
+	      /*item*/
+	      ctx[30];
+	      componentcard.$set(componentcard_changes);
+	    },
+	    i: function i(local) {
+	      if (current) return;
+	      transition_in(componentcard.$$.fragment, local);
+	      current = true;
+	    },
+	    o: function o(local) {
+	      transition_out(componentcard.$$.fragment, local);
+	      current = false;
+	    },
+	    d: function d(detaching) {
+	      destroy_component(componentcard, detaching);
+	    }
+	  };
+	} // (95:4) {:else}
+
+
+	function create_else_block$1(ctx) {
+	  var div0;
+	  var t1;
+	  var div1;
+	  var each_blocks = [];
+	  var each_1_lookup = new Map();
+	  var div1_class_value;
+	  var current;
+	  var each_value_1 =
+	  /*filteredTemplates*/
+	  ctx[6];
+
+	  var get_key = function get_key(ctx) {
+	    return (
+	      /*flow*/
+	      ctx[27]._id
+	    );
+	  };
+
+	  for (var i = 0; i < each_value_1.length; i += 1) {
+	    var child_ctx = get_each_context_1$1(ctx, each_value_1, i);
+	    var key = get_key(child_ctx);
+	    each_1_lookup.set(key, each_blocks[i] = create_each_block_1$1(key, child_ctx));
+	  }
+
+	  return {
+	    c: function c() {
+	      div0 = element("div");
+	      div0.textContent = "Flows";
+	      t1 = space();
+	      div1 = element("div");
+
+	      for (var _i6 = 0; _i6 < each_blocks.length; _i6 += 1) {
+	        each_blocks[_i6].c();
+	      }
+
+	      attr(div0, "class", "integrations-header svelte-nccfsr");
+	      attr(div1, "class", div1_class_value = "integrations-grid " +
+	      /*currentBreakpoint*/
+	      ctx[3] + " svelte-nccfsr");
+	    },
+	    m: function m(target, anchor) {
+	      insert(target, div0, anchor);
+	      insert(target, t1, anchor);
+	      insert(target, div1, anchor);
+
+	      for (var _i7 = 0; _i7 < each_blocks.length; _i7 += 1) {
+	        each_blocks[_i7].m(div1, null);
+	      }
+
+	      current = true;
+	    },
+	    p: function p(ctx, dirty) {
+	      if (dirty[0] &
+	      /*filteredTemplates, getImageArray, onEnabledChange*/
+	      832) {
+	        each_value_1 =
+	        /*filteredTemplates*/
+	        ctx[6];
+	        group_outros();
+	        each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value_1, each_1_lookup, div1, outro_and_destroy_block, create_each_block_1$1, null, get_each_context_1$1);
+	        check_outros();
+	      }
+
+	      if (!current || dirty[0] &
+	      /*currentBreakpoint*/
+	      8 && div1_class_value !== (div1_class_value = "integrations-grid " +
+	      /*currentBreakpoint*/
+	      ctx[3] + " svelte-nccfsr")) {
+	        attr(div1, "class", div1_class_value);
+	      }
+	    },
+	    i: function i(local) {
+	      if (current) return;
+
+	      for (var _i8 = 0; _i8 < each_value_1.length; _i8 += 1) {
+	        transition_in(each_blocks[_i8]);
+	      }
+
+	      current = true;
+	    },
+	    o: function o(local) {
+	      for (var _i9 = 0; _i9 < each_blocks.length; _i9 += 1) {
+	        transition_out(each_blocks[_i9]);
+	      }
+
+	      current = false;
+	    },
+	    d: function d(detaching) {
+	      if (detaching) detach(div0);
+	      if (detaching) detach(t1);
+	      if (detaching) detach(div1);
+
+	      for (var _i10 = 0; _i10 < each_blocks.length; _i10 += 1) {
+	        each_blocks[_i10].d();
+	      }
+	    }
+	  };
+	} // (88:4) {#if currentLabel === "All integrations"}
+
+
+	function create_if_block$3(ctx) {
+	  var div0;
+	  var t0;
+	  var t1;
+	  var div1;
+	  var each_blocks = [];
+	  var each_1_lookup = new Map();
+	  var div1_class_value;
+	  var current;
+	  var each_value =
+	  /*components*/
+	  ctx[7];
+
+	  var get_key = function get_key(ctx) {
+	    return (
+	      /*component*/
+	      ctx[24]._id
+	    );
+	  };
+
+	  for (var i = 0; i < each_value.length; i += 1) {
+	    var child_ctx = get_each_context$3(ctx, each_value, i);
+	    var key = get_key(child_ctx);
+	    each_1_lookup.set(key, each_blocks[i] = create_each_block$3(key, child_ctx));
+	  }
+
+	  return {
+	    c: function c() {
+	      div0 = element("div");
+	      t0 = text(
+	      /*currentLabel*/
+	      ctx[0]);
+	      t1 = space();
+	      div1 = element("div");
+
+	      for (var _i11 = 0; _i11 < each_blocks.length; _i11 += 1) {
+	        each_blocks[_i11].c();
+	      }
+
+	      attr(div0, "class", "integrations-header svelte-nccfsr");
+	      attr(div1, "class", div1_class_value = "integrations-grid " +
+	      /*currentBreakpoint*/
+	      ctx[3] + " svelte-nccfsr");
+	    },
+	    m: function m(target, anchor) {
+	      insert(target, div0, anchor);
+	      append(div0, t0);
+	      insert(target, t1, anchor);
+	      insert(target, div1, anchor);
+
+	      for (var _i12 = 0; _i12 < each_blocks.length; _i12 += 1) {
+	        each_blocks[_i12].m(div1, null);
+	      }
+
+	      current = true;
+	    },
+	    p: function p(ctx, dirty) {
+	      if (!current || dirty[0] &
+	      /*currentLabel*/
+	      1) set_data(t0,
+	      /*currentLabel*/
+	      ctx[0]);
+
+	      if (dirty[0] &
+	      /*components*/
+	      128) {
+	        each_value =
+	        /*components*/
+	        ctx[7];
+	        group_outros();
+	        each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div1, outro_and_destroy_block, create_each_block$3, null, get_each_context$3);
+	        check_outros();
+	      }
+
+	      if (!current || dirty[0] &
+	      /*currentBreakpoint*/
+	      8 && div1_class_value !== (div1_class_value = "integrations-grid " +
+	      /*currentBreakpoint*/
+	      ctx[3] + " svelte-nccfsr")) {
+	        attr(div1, "class", div1_class_value);
+	      }
+	    },
+	    i: function i(local) {
+	      if (current) return;
+
+	      for (var _i13 = 0; _i13 < each_value.length; _i13 += 1) {
+	        transition_in(each_blocks[_i13]);
+	      }
+
+	      current = true;
+	    },
+	    o: function o(local) {
+	      for (var _i14 = 0; _i14 < each_blocks.length; _i14 += 1) {
+	        transition_out(each_blocks[_i14]);
+	      }
+
+	      current = false;
+	    },
+	    d: function d(detaching) {
+	      if (detaching) detach(div0);
+	      if (detaching) detach(t1);
+	      if (detaching) detach(div1);
+
+	      for (var _i15 = 0; _i15 < each_blocks.length; _i15 += 1) {
+	        each_blocks[_i15].d();
+	      }
+	    }
+	  };
+	} // (98:8) {#each filteredTemplates as flow (flow._id)}
+
+
+	function create_each_block_1$1(key_1, ctx) {
 	  var first;
 	  var flow;
 	  var updating_enabled;
@@ -7503,37 +7660,37 @@ var App = (function () {
 
 	  function flow_enabled_binding(value) {
 	    /*flow_enabled_binding*/
-	    ctx[13](value,
+	    ctx[18](value,
 	    /*flow*/
-	    ctx[19]);
+	    ctx[27]);
 	  }
 
 	  function click_handler() {
 	    return (
 	      /*click_handler*/
-	      ctx[14](
+	      ctx[19](
 	      /*flow*/
-	      ctx[19])
+	      ctx[27])
 	    );
 	  }
 
 	  var flow_props = {
 	    description:
 	    /*flow*/
-	    ctx[19].description,
+	    ctx[27].description,
 	    images:
 	    /*getImageArray*/
-	    ctx[6](
+	    ctx[9](
 	    /*flow*/
-	    ctx[19])
+	    ctx[27])
 	  };
 
 	  if (
 	  /*flow*/
-	  ctx[19].enabled !== void 0) {
+	  ctx[27].enabled !== void 0) {
 	    flow_props.enabled =
 	    /*flow*/
-	    ctx[19].enabled;
+	    ctx[27].enabled;
 	  }
 
 	  flow = new Flow({
@@ -7559,26 +7716,26 @@ var App = (function () {
 	    p: function p(new_ctx, dirty) {
 	      ctx = new_ctx;
 	      var flow_changes = {};
-	      if (dirty &
-	      /*templates*/
-	      16) flow_changes.description =
+	      if (dirty[0] &
+	      /*filteredTemplates*/
+	      64) flow_changes.description =
 	      /*flow*/
-	      ctx[19].description;
-	      if (dirty &
-	      /*templates*/
-	      16) flow_changes.images =
+	      ctx[27].description;
+	      if (dirty[0] &
+	      /*filteredTemplates*/
+	      64) flow_changes.images =
 	      /*getImageArray*/
-	      ctx[6](
+	      ctx[9](
 	      /*flow*/
-	      ctx[19]);
+	      ctx[27]);
 
-	      if (!updating_enabled && dirty &
-	      /*templates*/
-	      16) {
+	      if (!updating_enabled && dirty[0] &
+	      /*filteredTemplates*/
+	      64) {
 	        updating_enabled = true;
 	        flow_changes.enabled =
 	        /*flow*/
-	        ctx[19].enabled;
+	        ctx[27].enabled;
 	        add_flush_callback(function () {
 	          return updating_enabled = false;
 	        });
@@ -7600,21 +7757,71 @@ var App = (function () {
 	      destroy_component(flow, detaching);
 	    }
 	  };
+	} // (91:8) {#each components as component (component._id)}
+
+
+	function create_each_block$3(key_1, ctx) {
+	  var first;
+	  var componentcard;
+	  var current;
+	  componentcard = new ComponentCard({
+	    props: {
+	      component:
+	      /*component*/
+	      ctx[24]
+	    }
+	  });
+	  componentcard.$on("card-click",
+	  /*card_click_handler_1*/
+	  ctx[17]);
+	  return {
+	    key: key_1,
+	    first: null,
+	    c: function c() {
+	      first = empty();
+	      create_component(componentcard.$$.fragment);
+	      this.first = first;
+	    },
+	    m: function m(target, anchor) {
+	      insert(target, first, anchor);
+	      mount_component(componentcard, target, anchor);
+	      current = true;
+	    },
+	    p: function p(new_ctx, dirty) {
+	      ctx = new_ctx;
+	      var componentcard_changes = {};
+	      if (dirty[0] &
+	      /*components*/
+	      128) componentcard_changes.component =
+	      /*component*/
+	      ctx[24];
+	      componentcard.$set(componentcard_changes);
+	    },
+	    i: function i(local) {
+	      if (current) return;
+	      transition_in(componentcard.$$.fragment, local);
+	      current = true;
+	    },
+	    o: function o(local) {
+	      transition_out(componentcard.$$.fragment, local);
+	      current = false;
+	    },
+	    d: function d(detaching) {
+	      if (detaching) detach(first);
+	      destroy_component(componentcard, detaching);
+	    }
+	  };
 	}
 
 	function create_fragment$8(ctx) {
-	  var div4;
+	  var div2;
 	  var div0;
 	  var input;
 	  var t0;
-	  var div3;
-	  var t1;
 	  var div1;
-	  var t3;
-	  var div2;
-	  var each_blocks = [];
-	  var each1_lookup = new Map();
-	  var div2_class_value;
+	  var t1;
+	  var current_block_type_index;
+	  var if_block1;
 	  var current;
 	  input = new Input({
 	    props: {
@@ -7631,99 +7838,52 @@ var App = (function () {
 	      }
 	    }
 	  });
-	  var each_value_1 =
-	  /*filteredSections*/
-	  ctx[2];
-	  var each_blocks_1 = [];
+	  var if_block0 =
+	  /*showSection*/
+	  ctx[4] && create_if_block_1$1(ctx);
+	  var if_block_creators = [create_if_block$3, create_else_block$1];
+	  var if_blocks = [];
 
-	  for (var i = 0; i < each_value_1.length; i += 1) {
-	    each_blocks_1[i] = create_each_block_1$1(get_each_context_1$1(ctx, each_value_1, i));
+	  function select_block_type(ctx, dirty) {
+	    if (
+	    /*currentLabel*/
+	    ctx[0] === "All integrations") return 0;
+	    return 1;
 	  }
 
-	  var out = function out(i) {
-	    return transition_out(each_blocks_1[i], 1, 1, function () {
-	      each_blocks_1[i] = null;
-	    });
-	  };
-
-	  var each_value =
-	  /*templates*/
-	  ctx[4];
-
-	  var get_key = function get_key(ctx) {
-	    return (
-	      /*flow*/
-	      ctx[19]._id
-	    );
-	  };
-
-	  for (var _i6 = 0; _i6 < each_value.length; _i6 += 1) {
-	    var child_ctx = get_each_context$3(ctx, each_value, _i6);
-	    var key = get_key(child_ctx);
-	    each1_lookup.set(key, each_blocks[_i6] = create_each_block$3(key, child_ctx));
-	  }
-
+	  current_block_type_index = select_block_type(ctx);
+	  if_block1 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
 	  return {
 	    c: function c() {
-	      div4 = element("div");
+	      div2 = element("div");
 	      div0 = element("div");
 	      create_component(input.$$.fragment);
 	      t0 = space();
-	      div3 = element("div");
-
-	      for (var _i7 = 0; _i7 < each_blocks_1.length; _i7 += 1) {
-	        each_blocks_1[_i7].c();
-	      }
-
-	      t1 = space();
 	      div1 = element("div");
-	      div1.textContent = "Flows";
-	      t3 = space();
-	      div2 = element("div");
-
-	      for (var _i8 = 0; _i8 < each_blocks.length; _i8 += 1) {
-	        each_blocks[_i8].c();
-	      }
-
-	      attr(div0, "class", "searchbar svelte-ti21ll");
-	      attr(div1, "class", "flows-header svelte-ti21ll");
-	      attr(div2, "class", div2_class_value = "flow-grid " +
-	      /*currentBreakpoint*/
-	      ctx[1] + " svelte-ti21ll");
-	      attr(div3, "class", "featured svelte-ti21ll");
-	      attr(div4, "class", "content svelte-ti21ll");
+	      if (if_block0) if_block0.c();
+	      t1 = space();
+	      if_block1.c();
+	      attr(div0, "class", "searchbar svelte-nccfsr");
+	      attr(div1, "class", "featured svelte-nccfsr");
+	      attr(div2, "class", "content svelte-nccfsr");
 	    },
 	    m: function m(target, anchor) {
-	      insert(target, div4, anchor);
-	      append(div4, div0);
+	      insert(target, div2, anchor);
+	      append(div2, div0);
 	      mount_component(input, div0, null);
-	      append(div4, t0);
-	      append(div4, div3);
-
-	      for (var _i9 = 0; _i9 < each_blocks_1.length; _i9 += 1) {
-	        each_blocks_1[_i9].m(div3, null);
-	      }
-
-	      append(div3, t1);
-	      append(div3, div1);
-	      append(div3, t3);
-	      append(div3, div2);
-
-	      for (var _i10 = 0; _i10 < each_blocks.length; _i10 += 1) {
-	        each_blocks[_i10].m(div2, null);
-	      }
-
+	      append(div2, t0);
+	      append(div2, div1);
+	      if (if_block0) if_block0.m(div1, null);
+	      append(div1, t1);
+	      if_blocks[current_block_type_index].m(div1, null);
 	      current = true;
 	    },
-	    p: function p(ctx, _ref) {
-	      var _ref2 = _slicedToArray(_ref, 1),
-	          dirty = _ref2[0];
-
+	    p: function p(ctx, dirty) {
 	      var input_changes = {};
 
-	      if (dirty &
+	      if (dirty[1] &
 	      /*$$scope*/
-	      268435456) {
+	      4) {
 	        input_changes.$$scope = {
 	          dirty: dirty,
 	          ctx: ctx
@@ -7732,97 +7892,73 @@ var App = (function () {
 
 	      input.$set(input_changes);
 
-	      if (dirty &
-	      /*currentBreakpoint, elWidth, components, filteredSections*/
-	      15) {
-	        each_value_1 =
-	        /*filteredSections*/
-	        ctx[2];
+	      if (
+	      /*showSection*/
+	      ctx[4]) {
+	        if (if_block0) {
+	          if_block0.p(ctx, dirty);
 
-	        var _i11;
-
-	        for (_i11 = 0; _i11 < each_value_1.length; _i11 += 1) {
-	          var _child_ctx = get_each_context_1$1(ctx, each_value_1, _i11);
-
-	          if (each_blocks_1[_i11]) {
-	            each_blocks_1[_i11].p(_child_ctx, dirty);
-
-	            transition_in(each_blocks_1[_i11], 1);
-	          } else {
-	            each_blocks_1[_i11] = create_each_block_1$1(_child_ctx);
-
-	            each_blocks_1[_i11].c();
-
-	            transition_in(each_blocks_1[_i11], 1);
-
-	            each_blocks_1[_i11].m(div3, t1);
+	          if (dirty[0] &
+	          /*showSection*/
+	          16) {
+	            transition_in(if_block0, 1);
 	          }
+	        } else {
+	          if_block0 = create_if_block_1$1(ctx);
+	          if_block0.c();
+	          transition_in(if_block0, 1);
+	          if_block0.m(div1, t1);
 	        }
-
+	      } else if (if_block0) {
 	        group_outros();
-
-	        for (_i11 = each_value_1.length; _i11 < each_blocks_1.length; _i11 += 1) {
-	          out(_i11);
-	        }
-
+	        transition_out(if_block0, 1, 1, function () {
+	          if_block0 = null;
+	        });
 	        check_outros();
 	      }
 
-	      if (dirty &
-	      /*templates, getImageArray, onEnabledChange*/
-	      112) {
-	        each_value =
-	        /*templates*/
-	        ctx[4];
-	        group_outros();
-	        each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each1_lookup, div2, outro_and_destroy_block, create_each_block$3, null, get_each_context$3);
-	        check_outros();
-	      }
+	      var previous_block_index = current_block_type_index;
+	      current_block_type_index = select_block_type(ctx);
 
-	      if (!current || dirty &
-	      /*currentBreakpoint*/
-	      2 && div2_class_value !== (div2_class_value = "flow-grid " +
-	      /*currentBreakpoint*/
-	      ctx[1] + " svelte-ti21ll")) {
-	        attr(div2, "class", div2_class_value);
+	      if (current_block_type_index === previous_block_index) {
+	        if_blocks[current_block_type_index].p(ctx, dirty);
+	      } else {
+	        group_outros();
+	        transition_out(if_blocks[previous_block_index], 1, 1, function () {
+	          if_blocks[previous_block_index] = null;
+	        });
+	        check_outros();
+	        if_block1 = if_blocks[current_block_type_index];
+
+	        if (!if_block1) {
+	          if_block1 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+	          if_block1.c();
+	        } else {
+	          if_block1.p(ctx, dirty);
+	        }
+
+	        transition_in(if_block1, 1);
+	        if_block1.m(div1, null);
 	      }
 	    },
 	    i: function i(local) {
 	      if (current) return;
 	      transition_in(input.$$.fragment, local);
-
-	      for (var _i12 = 0; _i12 < each_value_1.length; _i12 += 1) {
-	        transition_in(each_blocks_1[_i12]);
-	      }
-
-	      for (var _i13 = 0; _i13 < each_value.length; _i13 += 1) {
-	        transition_in(each_blocks[_i13]);
-	      }
-
+	      transition_in(if_block0);
+	      transition_in(if_block1);
 	      current = true;
 	    },
 	    o: function o(local) {
 	      transition_out(input.$$.fragment, local);
-	      each_blocks_1 = each_blocks_1.filter(Boolean_1$1);
-
-	      for (var _i14 = 0; _i14 < each_blocks_1.length; _i14 += 1) {
-	        transition_out(each_blocks_1[_i14]);
-	      }
-
-	      for (var _i15 = 0; _i15 < each_blocks.length; _i15 += 1) {
-	        transition_out(each_blocks[_i15]);
-	      }
-
+	      transition_out(if_block0);
+	      transition_out(if_block1);
 	      current = false;
 	    },
 	    d: function d(detaching) {
-	      if (detaching) detach(div4);
+	      if (detaching) detach(div2);
 	      destroy_component(input);
-	      destroy_each(each_blocks_1, detaching);
-
-	      for (var _i16 = 0; _i16 < each_blocks.length; _i16 += 1) {
-	        each_blocks[_i16].d();
-	      }
+	      if (if_block0) if_block0.d();
+	      if_blocks[current_block_type_index].d();
 	    }
 	  };
 	}
@@ -7832,12 +7968,15 @@ var App = (function () {
 	function instance$7($$self, $$props, $$invalidate) {
 	  var components;
 	  var templates;
-	  var filteredSections;
+	  var firstSection;
+	  var filteredTemplates;
+	  var _$$props$currentLabel = $$props.currentLabel,
+	      currentLabel = _$$props$currentLabel === void 0 ? "All integrations" : _$$props$currentLabel;
+	  var _$$props$currentId = $$props.currentId,
+	      currentId = _$$props$currentId === void 0 ? "" : _$$props$currentId;
 	  var sections = $$props.sections;
 	  var data = $$props.data;
-	  var _$$props$isPreviewMod = $$props.isPreviewMode,
-	      isPreviewMode = _$$props$isPreviewMod === void 0 ? false : _$$props$isPreviewMod;
-	  var token = $$props.token;
+	  var isPreviewMode = $$props.isPreviewMode;
 	  var dispatch = createEventDispatcher();
 	  var elWidth;
 	  var currentBreakpoint;
@@ -7855,8 +7994,8 @@ var App = (function () {
 	  };
 
 	  var getImageArray = function getImageArray(template) {
-	    return template.graph.nodes.map(function (_ref3) {
-	      var componentId = _ref3.componentId;
+	    return template.graph.nodes.map(function (_ref) {
+	      var componentId = _ref.componentId;
 
 	      var _a;
 
@@ -7866,13 +8005,23 @@ var App = (function () {
 	    }).filter(Boolean);
 	  };
 
-	  var getFilteredSections = function getFilteredSections(sec) {
-	    var newSections = isPreviewMode ? sec.filter(function (t) {
-	      return t.previewEnabled;
-	    }) : sec.filter(function (t) {
-	      return t.enabled;
-	    });
-	    return newSections;
+	  var showSection = false;
+	  var objectIds = [];
+	  var componentsObjects = [];
+
+	  var updateShowSection = function updateShowSection(firstSection) {
+	    var _a;
+
+	    $$invalidate(4, showSection = hasSectionPreview(firstSection) || ((_a = firstSection === null || firstSection === void 0 ? void 0 : firstSection.taggedObjectIds) === null || _a === void 0 ? void 0 : _a.length) > 0);
+	    objectIds = hasSectionPreview(firstSection) ? firstSection.previewtaggedObjectIds : firstSection.taggedObjectIds;
+	    $$invalidate(5, componentsObjects = objectIds.map(function (componentId) {
+	      var component = components.find(function (_ref2) {
+	        var _id = _ref2._id;
+	        return String(_id) === String(componentId);
+	      });
+	      console.log("Component", component, components, componentId);
+	      return component;
+	    }).filter(Boolean));
 	  };
 
 	  function card_click_handler(event) {
@@ -7881,13 +8030,17 @@ var App = (function () {
 
 	  function div1_elementresize_handler() {
 	    elWidth = this.clientWidth;
-	    $$invalidate(0, elWidth);
+	    $$invalidate(1, elWidth);
+	  }
+
+	  function card_click_handler_1(event) {
+	    bubble.call(this, $$self, event);
 	  }
 
 	  function flow_enabled_binding(value, flow) {
 	    if ($$self.$$.not_equal(flow.enabled, value)) {
 	      flow.enabled = value;
-	      $$invalidate(4, templates), $$invalidate(8, data);
+	      (($$invalidate(6, filteredTemplates), $$invalidate(14, templates)), $$invalidate(10, currentId)), $$invalidate(12, data);
 	    }
 	  }
 
@@ -7896,37 +8049,54 @@ var App = (function () {
 	  };
 
 	  $$self.$$set = function ($$props) {
-	    if ('sections' in $$props) $$invalidate(7, sections = $$props.sections);
-	    if ('data' in $$props) $$invalidate(8, data = $$props.data);
-	    if ('isPreviewMode' in $$props) $$invalidate(9, isPreviewMode = $$props.isPreviewMode);
-	    if ('token' in $$props) $$invalidate(10, token = $$props.token);
+	    if ('currentLabel' in $$props) $$invalidate(0, currentLabel = $$props.currentLabel);
+	    if ('currentId' in $$props) $$invalidate(10, currentId = $$props.currentId);
+	    if ('sections' in $$props) $$invalidate(11, sections = $$props.sections);
+	    if ('data' in $$props) $$invalidate(12, data = $$props.data);
+	    if ('isPreviewMode' in $$props) $$invalidate(13, isPreviewMode = $$props.isPreviewMode);
 	  };
 
 	  $$self.$$.update = function () {
-	    if ($$self.$$.dirty &
+	    if ($$self.$$.dirty[0] &
 	    /*data*/
-	    256) {
+	    4096) {
 	      var _data;
 
-	      $$invalidate(3, (_data = data, components = _data.components, templates = _data.templates, _data), components, ($$invalidate(4, templates), $$invalidate(8, data)));
+	      $$invalidate(7, (_data = data, components = _data.components, templates = _data.templates, _data), components, ($$invalidate(14, templates), $$invalidate(12, data)));
 	    }
 
-	    if ($$self.$$.dirty &
+	    if ($$self.$$.dirty[0] &
 	    /*elWidth*/
-	    1) {
+	    2) {
 	      {
-	        $$invalidate(1, currentBreakpoint = getBpClasses(elWidth));
+	        $$invalidate(3, currentBreakpoint = getBpClasses(elWidth));
 	      }
 	    }
 
-	    if ($$self.$$.dirty &
+	    if ($$self.$$.dirty[0] &
 	    /*sections*/
-	    128) {
-	      $$invalidate(2, filteredSections = getFilteredSections(sections));
+	    2048) {
+	      $$invalidate(2, firstSection = sections.length ? sections[0] : null);
+	    }
+
+	    if ($$self.$$.dirty[0] &
+	    /*firstSection*/
+	    4) {
+	      {
+	        updateShowSection(firstSection);
+	      }
+	    }
+
+	    if ($$self.$$.dirty[0] &
+	    /*templates, currentId*/
+	    17408) {
+	      $$invalidate(6, filteredTemplates = templates.filter(function (t) {
+	        return t.collectionIds.includes(currentId);
+	      }));
 	    }
 	  };
 
-	  return [elWidth, currentBreakpoint, filteredSections, components, templates, onEnabledChange, getImageArray, sections, data, isPreviewMode, token, card_click_handler, div1_elementresize_handler, flow_enabled_binding, click_handler];
+	  return [currentLabel, elWidth, firstSection, currentBreakpoint, showSection, componentsObjects, filteredTemplates, components, onEnabledChange, getImageArray, currentId, sections, data, isPreviewMode, templates, card_click_handler, div1_elementresize_handler, card_click_handler_1, flow_enabled_binding, click_handler];
 	}
 
 	var Content = /*#__PURE__*/function (_SvelteComponent) {
@@ -7941,11 +8111,12 @@ var App = (function () {
 
 	    _this = _super.call(this);
 	    init(_assertThisInitialized(_this), options, instance$7, create_fragment$8, safe_not_equal, {
-	      sections: 7,
-	      data: 8,
-	      isPreviewMode: 9,
-	      token: 10
-	    });
+	      currentLabel: 0,
+	      currentId: 10,
+	      sections: 11,
+	      data: 12,
+	      isPreviewMode: 13
+	    }, null, [-1, -1]);
 	    return _this;
 	  }
 
@@ -7960,6 +8131,8 @@ var App = (function () {
 	  var div;
 	  var span;
 	  var t;
+	  var mounted;
+	  var dispose;
 	  return {
 	    c: function c() {
 	      div = element("div");
@@ -7976,6 +8149,13 @@ var App = (function () {
 	      insert(target, div, anchor);
 	      append(div, span);
 	      append(span, t);
+
+	      if (!mounted) {
+	        dispose = listen(div, "click",
+	        /*labelClick*/
+	        ctx[2]);
+	        mounted = true;
+	      }
 	    },
 	    p: function p(ctx, _ref) {
 	      var _ref2 = _slicedToArray(_ref, 1),
@@ -7999,21 +8179,33 @@ var App = (function () {
 	    o: noop,
 	    d: function d(detaching) {
 	      if (detaching) detach(div);
+	      mounted = false;
+	      dispose();
 	    }
 	  };
 	}
 
 	function instance$6($$self, $$props, $$invalidate) {
 	  var text = $$props.text;
+	  var id = $$props.id;
 	  var _$$props$selected = $$props.selected,
 	      selected = _$$props$selected === void 0 ? false : _$$props$selected;
+	  var dispatch = createEventDispatcher();
+
+	  var labelClick = function labelClick() {
+	    dispatch("label-select", {
+	      text: text,
+	      id: id
+	    });
+	  };
 
 	  $$self.$$set = function ($$props) {
 	    if ('text' in $$props) $$invalidate(0, text = $$props.text);
+	    if ('id' in $$props) $$invalidate(3, id = $$props.id);
 	    if ('selected' in $$props) $$invalidate(1, selected = $$props.selected);
 	  };
 
-	  return [text, selected];
+	  return [text, selected, labelClick, id];
 	}
 
 	var CategoryLabel = /*#__PURE__*/function (_SvelteComponent) {
@@ -8029,6 +8221,7 @@ var App = (function () {
 	    _this = _super.call(this);
 	    init(_assertThisInitialized(_this), options, instance$6, create_fragment$7, safe_not_equal, {
 	      text: 0,
+	      id: 3,
 	      selected: 1
 	    });
 	    return _this;
@@ -8093,36 +8286,69 @@ var App = (function () {
 
 	function get_each_context$2(ctx, list, i) {
 	  var child_ctx = ctx.slice();
-	  child_ctx[3] = list[i];
+	  child_ctx[8] = list[i];
 	  return child_ctx;
-	} // (15:2) {#each categoryObjects as taggedObjectId}
+	} // (24:2) {#each categoryIds as taggedObjectId (taggedObjectId._id)}
 
 
-	function create_each_block$2(ctx) {
+	function create_each_block$2(key_1, ctx) {
+	  var first;
 	  var categorylabel;
 	  var current;
 	  categorylabel = new CategoryLabel({
 	    props: {
 	      text:
 	      /*taggedObjectId*/
-	      ctx[3].name
+	      ctx[8].name,
+	      id:
+	      /*taggedObjectId*/
+	      ctx[8]._id,
+	      selected:
+	      /*taggedObjectId*/
+	      ctx[8].name ===
+	      /*currentLabel*/
+	      ctx[1] ? true : false
 	    }
 	  });
+	  categorylabel.$on("click",
+	  /*click_handler_1*/
+	  ctx[6]);
+	  categorylabel.$on("label-select",
+	  /*label_select_handler_1*/
+	  ctx[7]);
 	  return {
+	    key: key_1,
+	    first: null,
 	    c: function c() {
+	      first = empty();
 	      create_component(categorylabel.$$.fragment);
+	      this.first = first;
 	    },
 	    m: function m(target, anchor) {
+	      insert(target, first, anchor);
 	      mount_component(categorylabel, target, anchor);
 	      current = true;
 	    },
-	    p: function p(ctx, dirty) {
+	    p: function p(new_ctx, dirty) {
+	      ctx = new_ctx;
 	      var categorylabel_changes = {};
 	      if (dirty &
-	      /*categoryObjects*/
+	      /*categoryIds*/
 	      1) categorylabel_changes.text =
 	      /*taggedObjectId*/
-	      ctx[3].name;
+	      ctx[8].name;
+	      if (dirty &
+	      /*categoryIds*/
+	      1) categorylabel_changes.id =
+	      /*taggedObjectId*/
+	      ctx[8]._id;
+	      if (dirty &
+	      /*categoryIds, currentLabel*/
+	      3) categorylabel_changes.selected =
+	      /*taggedObjectId*/
+	      ctx[8].name ===
+	      /*currentLabel*/
+	      ctx[1] ? true : false;
 	      categorylabel.$set(categorylabel_changes);
 	    },
 	    i: function i(local) {
@@ -8135,6 +8361,7 @@ var App = (function () {
 	      current = false;
 	    },
 	    d: function d(detaching) {
+	      if (detaching) detach(first);
 	      destroy_component(categorylabel, detaching);
 	    }
 	  };
@@ -8148,22 +8375,43 @@ var App = (function () {
 	  var div0;
 	  var dropdownicon;
 	  var t2;
+	  var categorylabel;
+	  var t3;
+	  var each_blocks = [];
+	  var each_1_lookup = new Map();
 	  var current;
 	  dropdownicon = new DropdownIcon({});
+	  categorylabel = new CategoryLabel({
+	    props: {
+	      text: initialLabel,
+	      id: "612ec280a916f6f81cd61f75",
+	      selected: initialLabel ===
+	      /*currentLabel*/
+	      ctx[1] ? true : false
+	    }
+	  });
+	  categorylabel.$on("click",
+	  /*click_handler*/
+	  ctx[4]);
+	  categorylabel.$on("label-select",
+	  /*label_select_handler*/
+	  ctx[5]);
 	  var each_value =
-	  /*categoryObjects*/
+	  /*categoryIds*/
 	  ctx[0];
-	  var each_blocks = [];
+
+	  var get_key = function get_key(ctx) {
+	    return (
+	      /*taggedObjectId*/
+	      ctx[8]._id
+	    );
+	  };
 
 	  for (var i = 0; i < each_value.length; i += 1) {
-	    each_blocks[i] = create_each_block$2(get_each_context$2(ctx, each_value, i));
+	    var child_ctx = get_each_context$2(ctx, each_value, i);
+	    var key = get_key(child_ctx);
+	    each_1_lookup.set(key, each_blocks[i] = create_each_block$2(key, child_ctx));
 	  }
-
-	  var out = function out(i) {
-	    return transition_out(each_blocks[i], 1, 1, function () {
-	      each_blocks[i] = null;
-	    });
-	  };
 
 	  return {
 	    c: function c() {
@@ -8175,15 +8423,20 @@ var App = (function () {
 	      div0 = element("div");
 	      create_component(dropdownicon.$$.fragment);
 	      t2 = space();
+	      create_component(categorylabel.$$.fragment);
+	      t3 = space();
 
 	      for (var _i = 0; _i < each_blocks.length; _i += 1) {
 	        each_blocks[_i].c();
 	      }
 
-	      attr(span, "class", "svelte-18kr5tf");
-	      attr(div0, "class", "svelte-18kr5tf");
-	      attr(div1, "class", "dropdown svelte-18kr5tf");
-	      attr(div2, "class", "sidebar svelte-18kr5tf");
+	      attr(span, "class", "svelte-sj19gz");
+	      attr(div0, "class", "svelte-sj19gz");
+	      attr(div1, "class", "dropdown svelte-sj19gz");
+	      attr(div2, "class", "sidebar svelte-sj19gz");
+	      toggle_class(div2, "breakpoint",
+	      /*breakpoint*/
+	      ctx[2]);
 	    },
 	    m: function m(target, anchor) {
 	      insert(target, div2, anchor);
@@ -8193,6 +8446,8 @@ var App = (function () {
 	      append(div1, div0);
 	      mount_component(dropdownicon, div0, null);
 	      append(div2, t2);
+	      mount_component(categorylabel, div2, null);
+	      append(div2, t3);
 
 	      for (var _i2 = 0; _i2 < each_blocks.length; _i2 += 1) {
 	        each_blocks[_i2].m(div2, null);
@@ -8204,58 +8459,50 @@ var App = (function () {
 	      var _ref2 = _slicedToArray(_ref, 1),
 	          dirty = _ref2[0];
 
+	      var categorylabel_changes = {};
 	      if (dirty &
-	      /*categoryObjects*/
-	      1) {
+	      /*currentLabel*/
+	      2) categorylabel_changes.selected = initialLabel ===
+	      /*currentLabel*/
+	      ctx[1] ? true : false;
+	      categorylabel.$set(categorylabel_changes);
+
+	      if (dirty &
+	      /*categoryIds, currentLabel*/
+	      3) {
 	        each_value =
-	        /*categoryObjects*/
+	        /*categoryIds*/
 	        ctx[0];
-
-	        var _i3;
-
-	        for (_i3 = 0; _i3 < each_value.length; _i3 += 1) {
-	          var child_ctx = get_each_context$2(ctx, each_value, _i3);
-
-	          if (each_blocks[_i3]) {
-	            each_blocks[_i3].p(child_ctx, dirty);
-
-	            transition_in(each_blocks[_i3], 1);
-	          } else {
-	            each_blocks[_i3] = create_each_block$2(child_ctx);
-
-	            each_blocks[_i3].c();
-
-	            transition_in(each_blocks[_i3], 1);
-
-	            each_blocks[_i3].m(div2, null);
-	          }
-	        }
-
 	        group_outros();
-
-	        for (_i3 = each_value.length; _i3 < each_blocks.length; _i3 += 1) {
-	          out(_i3);
-	        }
-
+	        each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div2, outro_and_destroy_block, create_each_block$2, null, get_each_context$2);
 	        check_outros();
+	      }
+
+	      if (dirty &
+	      /*breakpoint*/
+	      4) {
+	        toggle_class(div2, "breakpoint",
+	        /*breakpoint*/
+	        ctx[2]);
 	      }
 	    },
 	    i: function i(local) {
 	      if (current) return;
 	      transition_in(dropdownicon.$$.fragment, local);
+	      transition_in(categorylabel.$$.fragment, local);
 
-	      for (var _i4 = 0; _i4 < each_value.length; _i4 += 1) {
-	        transition_in(each_blocks[_i4]);
+	      for (var _i3 = 0; _i3 < each_value.length; _i3 += 1) {
+	        transition_in(each_blocks[_i3]);
 	      }
 
 	      current = true;
 	    },
 	    o: function o(local) {
 	      transition_out(dropdownicon.$$.fragment, local);
-	      each_blocks = each_blocks.filter(Boolean);
+	      transition_out(categorylabel.$$.fragment, local);
 
-	      for (var _i5 = 0; _i5 < each_blocks.length; _i5 += 1) {
-	        transition_out(each_blocks[_i5]);
+	      for (var _i4 = 0; _i4 < each_blocks.length; _i4 += 1) {
+	        transition_out(each_blocks[_i4]);
 	      }
 
 	      current = false;
@@ -8263,31 +8510,56 @@ var App = (function () {
 	    d: function d(detaching) {
 	      if (detaching) detach(div2);
 	      destroy_component(dropdownicon);
-	      destroy_each(each_blocks, detaching);
+	      destroy_component(categorylabel);
+
+	      for (var _i5 = 0; _i5 < each_blocks.length; _i5 += 1) {
+	        each_blocks[_i5].d();
+	      }
 	    }
 	  };
 	}
 
+	var initialLabel = "All integrations";
+
 	function instance$5($$self, $$props, $$invalidate) {
-	  var categoryObjects;
-	  var _$$props$isPreviewMod = $$props.isPreviewMode,
-	      isPreviewMode = _$$props$isPreviewMod === void 0 ? false : _$$props$isPreviewMod;
-	  var category = $$props.category;
+	  var breakpoint;
+	  var _$$props$categoryIds = $$props.categoryIds,
+	      categoryIds = _$$props$categoryIds === void 0 ? [] : _$$props$categoryIds;
+	  var _$$props$currentLabel = $$props.currentLabel,
+	      currentLabel = _$$props$currentLabel === void 0 ? "" : _$$props$currentLabel;
+	  var elemWidth = $$props.elemWidth;
+
+	  function click_handler(event) {
+	    bubble.call(this, $$self, event);
+	  }
+
+	  function label_select_handler(event) {
+	    bubble.call(this, $$self, event);
+	  }
+
+	  function click_handler_1(event) {
+	    bubble.call(this, $$self, event);
+	  }
+
+	  function label_select_handler_1(event) {
+	    bubble.call(this, $$self, event);
+	  }
 
 	  $$self.$$set = function ($$props) {
-	    if ('isPreviewMode' in $$props) $$invalidate(1, isPreviewMode = $$props.isPreviewMode);
-	    if ('category' in $$props) $$invalidate(2, category = $$props.category);
+	    if ('categoryIds' in $$props) $$invalidate(0, categoryIds = $$props.categoryIds);
+	    if ('currentLabel' in $$props) $$invalidate(1, currentLabel = $$props.currentLabel);
+	    if ('elemWidth' in $$props) $$invalidate(3, elemWidth = $$props.elemWidth);
 	  };
 
 	  $$self.$$.update = function () {
 	    if ($$self.$$.dirty &
-	    /*isPreviewMode, category*/
-	    6) {
-	      $$invalidate(0, categoryObjects = isPreviewMode ? category.previewtaggedObjectIds : category.taggedObjectIds);
+	    /*elemWidth*/
+	    8) {
+	      $$invalidate(2, breakpoint = elemWidth < 672 ? true : false);
 	    }
 	  };
 
-	  return [categoryObjects, isPreviewMode, category];
+	  return [categoryIds, currentLabel, breakpoint, elemWidth, click_handler, label_select_handler, click_handler_1, label_select_handler_1];
 	}
 
 	var Sidebar = /*#__PURE__*/function (_SvelteComponent) {
@@ -8302,8 +8574,9 @@ var App = (function () {
 
 	    _this = _super.call(this);
 	    init(_assertThisInitialized(_this), options, instance$5, create_fragment$5, safe_not_equal, {
-	      isPreviewMode: 1,
-	      category: 2
+	      categoryIds: 0,
+	      currentLabel: 1,
+	      elemWidth: 3
 	    });
 	    return _this;
 	  }
@@ -8323,18 +8596,18 @@ var App = (function () {
 
 	  function modal_shown_binding(value) {
 	    /*modal_shown_binding*/
-	    ctx[15](value);
+	    ctx[22](value);
 	  }
 
 	  function modal_currentTemplate_binding(value) {
 	    /*modal_currentTemplate_binding*/
-	    ctx[16](value);
+	    ctx[23](value);
 	  }
 
 	  var modal_props = {
 	    components:
 	    /*data*/
-	    ctx[3].components
+	    ctx[4].components
 	  };
 
 	  if (
@@ -8374,9 +8647,9 @@ var App = (function () {
 	      var modal_changes = {};
 	      if (dirty &
 	      /*data*/
-	      8) modal_changes.components =
+	      16) modal_changes.components =
 	      /*data*/
-	      ctx[3].components;
+	      ctx[4].components;
 
 	      if (!updating_shown && dirty &
 	      /*openedModal*/
@@ -8417,23 +8690,35 @@ var App = (function () {
 	      destroy_component(modal, detaching);
 	    }
 	  };
-	} // (33:0) {#if showSidebar}
+	} // (50:0) {#if showSidebar}
 
 
 	function create_if_block_1(ctx) {
 	  var sidebar_1;
 	  var updating_isPreviewMode;
+	  var updating_currentLabel;
+	  var updating_elemWidth;
 	  var current;
 
 	  function sidebar_1_isPreviewMode_binding(value) {
 	    /*sidebar_1_isPreviewMode_binding*/
-	    ctx[17](value);
+	    ctx[24](value);
+	  }
+
+	  function sidebar_1_currentLabel_binding(value) {
+	    /*sidebar_1_currentLabel_binding*/
+	    ctx[25](value);
+	  }
+
+	  function sidebar_1_elemWidth_binding(value) {
+	    /*sidebar_1_elemWidth_binding*/
+	    ctx[26](value);
 	  }
 
 	  var sidebar_1_props = {
-	    category:
-	    /*category*/
-	    ctx[5]
+	    categoryIds:
+	    /*categoryIds*/
+	    ctx[7]
 	  };
 
 	  if (
@@ -8444,12 +8729,37 @@ var App = (function () {
 	    ctx[0];
 	  }
 
+	  if (
+	  /*currentLabel*/
+	  ctx[5] !== void 0) {
+	    sidebar_1_props.currentLabel =
+	    /*currentLabel*/
+	    ctx[5];
+	  }
+
+	  if (
+	  /*elemWidth*/
+	  ctx[3] !== void 0) {
+	    sidebar_1_props.elemWidth =
+	    /*elemWidth*/
+	    ctx[3];
+	  }
+
 	  sidebar_1 = new Sidebar({
 	    props: sidebar_1_props
 	  });
 	  binding_callbacks.push(function () {
 	    return bind(sidebar_1, 'isPreviewMode', sidebar_1_isPreviewMode_binding);
 	  });
+	  binding_callbacks.push(function () {
+	    return bind(sidebar_1, 'currentLabel', sidebar_1_currentLabel_binding);
+	  });
+	  binding_callbacks.push(function () {
+	    return bind(sidebar_1, 'elemWidth', sidebar_1_elemWidth_binding);
+	  });
+	  sidebar_1.$on("label-select",
+	  /*selectingLabel*/
+	  ctx[13]);
 	  return {
 	    c: function c() {
 	      create_component(sidebar_1.$$.fragment);
@@ -8461,10 +8771,10 @@ var App = (function () {
 	    p: function p(ctx, dirty) {
 	      var sidebar_1_changes = {};
 	      if (dirty &
-	      /*category*/
-	      32) sidebar_1_changes.category =
-	      /*category*/
-	      ctx[5];
+	      /*categoryIds*/
+	      128) sidebar_1_changes.categoryIds =
+	      /*categoryIds*/
+	      ctx[7];
 
 	      if (!updating_isPreviewMode && dirty &
 	      /*isPreviewMode*/
@@ -8475,6 +8785,30 @@ var App = (function () {
 	        ctx[0];
 	        add_flush_callback(function () {
 	          return updating_isPreviewMode = false;
+	        });
+	      }
+
+	      if (!updating_currentLabel && dirty &
+	      /*currentLabel*/
+	      32) {
+	        updating_currentLabel = true;
+	        sidebar_1_changes.currentLabel =
+	        /*currentLabel*/
+	        ctx[5];
+	        add_flush_callback(function () {
+	          return updating_currentLabel = false;
+	        });
+	      }
+
+	      if (!updating_elemWidth && dirty &
+	      /*elemWidth*/
+	      8) {
+	        updating_elemWidth = true;
+	        sidebar_1_changes.elemWidth =
+	        /*elemWidth*/
+	        ctx[3];
+	        add_flush_callback(function () {
+	          return updating_elemWidth = false;
 	        });
 	      }
 
@@ -8493,7 +8827,7 @@ var App = (function () {
 	      destroy_component(sidebar_1, detaching);
 	    }
 	  };
-	} // (46:0) {:else}
+	} // (69:0) {:else}
 
 
 	function create_else_block(ctx) {
@@ -8513,7 +8847,7 @@ var App = (function () {
 	      if (detaching) detach(div);
 	    }
 	  };
-	} // (37:0) {#if showContent}
+	} // (59:0) {#if showContent}
 
 
 	function create_if_block$2(ctx) {
@@ -8523,19 +8857,22 @@ var App = (function () {
 
 	  function content_isPreviewMode_binding(value) {
 	    /*content_isPreviewMode_binding*/
-	    ctx[18](value);
+	    ctx[27](value);
 	  }
 
 	  var content_props = {
 	    sections:
 	    /*sections*/
-	    ctx[8],
+	    ctx[10],
 	    data:
 	    /*data*/
-	    ctx[3],
-	    token:
-	    /*token*/
-	    ctx[4]
+	    ctx[4],
+	    currentLabel:
+	    /*currentLabel*/
+	    ctx[5],
+	    currentId:
+	    /*currentId*/
+	    ctx[6]
 	  };
 
 	  if (
@@ -8553,11 +8890,11 @@ var App = (function () {
 	    return bind(content, 'isPreviewMode', content_isPreviewMode_binding);
 	  });
 	  content.$on("card-click",
-	  /*card_click_handler*/
-	  ctx[19]);
+	  /*routingFunction*/
+	  ctx[11]);
 	  content.$on("open-modal",
-	  /*open_modal_handler*/
-	  ctx[20]);
+	  /*openingModal*/
+	  ctx[12]);
 	  return {
 	    c: function c() {
 	      create_component(content.$$.fragment);
@@ -8570,19 +8907,24 @@ var App = (function () {
 	      var content_changes = {};
 	      if (dirty &
 	      /*sections*/
-	      256) content_changes.sections =
+	      1024) content_changes.sections =
 	      /*sections*/
-	      ctx[8];
+	      ctx[10];
 	      if (dirty &
 	      /*data*/
-	      8) content_changes.data =
+	      16) content_changes.data =
 	      /*data*/
-	      ctx[3];
-	      if (dirty &
-	      /*token*/
-	      16) content_changes.token =
-	      /*token*/
 	      ctx[4];
+	      if (dirty &
+	      /*currentLabel*/
+	      32) content_changes.currentLabel =
+	      /*currentLabel*/
+	      ctx[5];
+	      if (dirty &
+	      /*currentId*/
+	      64) content_changes.currentId =
+	      /*currentId*/
+	      ctx[6];
 
 	      if (!updating_isPreviewMode && dirty &
 	      /*isPreviewMode*/
@@ -8622,19 +8964,19 @@ var App = (function () {
 	  var current;
 	  var if_block0 = !!
 	  /*data*/
-	  ctx[3] && !!
+	  ctx[4] && !!
 	  /*currentTemplate*/
 	  ctx[2] && create_if_block_2(ctx);
 	  var if_block1 =
 	  /*showSidebar*/
-	  ctx[7] && create_if_block_1(ctx);
+	  ctx[8] && create_if_block_1(ctx);
 	  var if_block_creators = [create_if_block$2, create_else_block];
 	  var if_blocks = [];
 
 	  function select_block_type(ctx, dirty) {
 	    if (
 	    /*showContent*/
-	    ctx[6]) return 0;
+	    ctx[9]) return 0;
 	    return 1;
 	  }
 
@@ -8664,7 +9006,7 @@ var App = (function () {
 
 	      if (!!
 	      /*data*/
-	      ctx[3] && !!
+	      ctx[4] && !!
 	      /*currentTemplate*/
 	      ctx[2]) {
 	        if (if_block0) {
@@ -8672,7 +9014,7 @@ var App = (function () {
 
 	          if (dirty &
 	          /*data, currentTemplate*/
-	          12) {
+	          20) {
 	            transition_in(if_block0, 1);
 	          }
 	        } else {
@@ -8691,13 +9033,13 @@ var App = (function () {
 
 	      if (
 	      /*showSidebar*/
-	      ctx[7]) {
+	      ctx[8]) {
 	        if (if_block1) {
 	          if_block1.p(ctx, dirty);
 
 	          if (dirty &
 	          /*showSidebar*/
-	          128) {
+	          256) {
 	            transition_in(if_block1, 1);
 	          }
 	        } else {
@@ -8765,28 +9107,38 @@ var App = (function () {
 	function instance$4($$self, $$props, $$invalidate) {
 	  var category;
 	  var sections;
-	  var showSidebar;
 	  var showContent;
+	  var previewEnabled;
+	  var taggedEnabled;
+	  var showSidebar;
+	  var categoryIds;
 
 	  var _a, _b;
 
 	  var sidebar = $$props.sidebar;
 	  var data = $$props.data;
 	  var navigate = $$props.navigate;
-	  var _$$props$isPreviewMod = $$props.isPreviewMode,
-	      isPreviewMode = _$$props$isPreviewMod === void 0 ? false : _$$props$isPreviewMod;
+	  var isPreviewMode = $$props.isPreviewMode;
 	  var token = $$props.token;
 	  var _$$props$openedModal = $$props.openedModal,
 	      openedModal = _$$props$openedModal === void 0 ? false : _$$props$openedModal;
 	  var currentTemplate = $$props.currentTemplate;
+	  var elemWidth = $$props.elemWidth;
+	  var currentLabel = "All integrations";
+	  var currentId = "";
 
 	  var routingFunction = function routingFunction(e) {
-	    if (!isPreviewMode) navigate(e.detail);
+	    navigate(e.detail);
 	  };
 
 	  var openingModal = function openingModal(e) {
 	    $$invalidate(1, openedModal = true);
 	    $$invalidate(2, currentTemplate = e.detail);
+	  };
+
+	  var selectingLabel = function selectingLabel(e) {
+	    $$invalidate(5, currentLabel = e.detail.text);
+	    $$invalidate(6, currentId = e.detail.id);
 	  };
 
 	  function modal_shown_binding(value) {
@@ -8804,52 +9156,73 @@ var App = (function () {
 	    $$invalidate(0, isPreviewMode);
 	  }
 
+	  function sidebar_1_currentLabel_binding(value) {
+	    currentLabel = value;
+	    $$invalidate(5, currentLabel);
+	  }
+
+	  function sidebar_1_elemWidth_binding(value) {
+	    elemWidth = value;
+	    $$invalidate(3, elemWidth);
+	  }
+
 	  function content_isPreviewMode_binding(value) {
 	    isPreviewMode = value;
 	    $$invalidate(0, isPreviewMode);
 	  }
 
-	  var card_click_handler = function card_click_handler(e) {
-	    return routingFunction(e);
-	  };
-
-	  var open_modal_handler = function open_modal_handler(e) {
-	    return openingModal(e);
-	  };
-
 	  $$self.$$set = function ($$props) {
-	    if ('sidebar' in $$props) $$invalidate(11, sidebar = $$props.sidebar);
-	    if ('data' in $$props) $$invalidate(3, data = $$props.data);
-	    if ('navigate' in $$props) $$invalidate(12, navigate = $$props.navigate);
+	    if ('sidebar' in $$props) $$invalidate(14, sidebar = $$props.sidebar);
+	    if ('data' in $$props) $$invalidate(4, data = $$props.data);
+	    if ('navigate' in $$props) $$invalidate(15, navigate = $$props.navigate);
 	    if ('isPreviewMode' in $$props) $$invalidate(0, isPreviewMode = $$props.isPreviewMode);
-	    if ('token' in $$props) $$invalidate(4, token = $$props.token);
+	    if ('token' in $$props) $$invalidate(16, token = $$props.token);
 	    if ('openedModal' in $$props) $$invalidate(1, openedModal = $$props.openedModal);
 	    if ('currentTemplate' in $$props) $$invalidate(2, currentTemplate = $$props.currentTemplate);
+	    if ('elemWidth' in $$props) $$invalidate(3, elemWidth = $$props.elemWidth);
 	  };
 
 	  $$self.$$.update = function () {
 	    if ($$self.$$.dirty &
 	    /*sidebar*/
-	    2048) {
+	    16384) {
 	      var _ref3;
 
-	      $$invalidate(5, (_ref3 = sidebar || {}, category = _ref3.category, sections = _ref3.sections, _ref3), category, ($$invalidate(8, sections), $$invalidate(11, sidebar)));
-	    }
-
-	    if ($$self.$$.dirty &
-	    /*isPreviewMode, category, _a, _b*/
-	    24609) {
-	      $$invalidate(7, showSidebar = isPreviewMode && !!category && (category === null || category === void 0 ? void 0 : category.previewEnabled) && ($$invalidate(13, _a = category === null || category === void 0 ? void 0 : category.previewTaggedObjectIds) === null || _a === void 0 ? void 0 : _a.length) || !!category && (category === null || category === void 0 ? void 0 : category.enabled) && ($$invalidate(14, _b = category === null || category === void 0 ? void 0 : category.taggedObjectIds) === null || _b === void 0 ? void 0 : _b.length));
+	      $$invalidate(19, (_ref3 = sidebar || {}, category = _ref3.category, sections = _ref3.sections, _ref3), category, ($$invalidate(10, sections), $$invalidate(14, sidebar)));
 	    }
 
 	    if ($$self.$$.dirty &
 	    /*sidebar*/
-	    2048) {
-	      $$invalidate(6, showContent = !!sidebar);
+	    16384) {
+	      $$invalidate(9, showContent = !!sidebar);
+	    }
+
+	    if ($$self.$$.dirty &
+	    /*isPreviewMode, category, _a*/
+	    655361) {
+	      $$invalidate(20, previewEnabled = isPreviewMode && hasCategoryPreview(category) && ($$invalidate(17, _a = category === null || category === void 0 ? void 0 : category.previewtaggedObjectIds) === null || _a === void 0 ? void 0 : _a.length));
+	    }
+
+	    if ($$self.$$.dirty &
+	    /*category, _b*/
+	    786432) {
+	      $$invalidate(21, taggedEnabled = !!category && (category === null || category === void 0 ? void 0 : category.enabled) && ($$invalidate(18, _b = category === null || category === void 0 ? void 0 : category.taggedObjectIds) === null || _b === void 0 ? void 0 : _b.length));
+	    }
+
+	    if ($$self.$$.dirty &
+	    /*previewEnabled, taggedEnabled*/
+	    3145728) {
+	      $$invalidate(8, showSidebar = previewEnabled || taggedEnabled);
+	    }
+
+	    if ($$self.$$.dirty &
+	    /*previewEnabled, category*/
+	    1572864) {
+	      $$invalidate(7, categoryIds = previewEnabled ? category === null || category === void 0 ? void 0 : category.previewtaggedObjectIds : category === null || category === void 0 ? void 0 : category.taggedObjectIds);
 	    }
 	  };
 
-	  return [isPreviewMode, openedModal, currentTemplate, data, token, category, showContent, showSidebar, sections, routingFunction, openingModal, sidebar, navigate, _a, _b, modal_shown_binding, modal_currentTemplate_binding, sidebar_1_isPreviewMode_binding, content_isPreviewMode_binding, card_click_handler, open_modal_handler];
+	  return [isPreviewMode, openedModal, currentTemplate, elemWidth, data, currentLabel, currentId, categoryIds, showSidebar, showContent, sections, routingFunction, openingModal, selectingLabel, sidebar, navigate, token, _a, _b, category, previewEnabled, taggedEnabled, modal_shown_binding, modal_currentTemplate_binding, sidebar_1_isPreviewMode_binding, sidebar_1_currentLabel_binding, sidebar_1_elemWidth_binding, content_isPreviewMode_binding];
 	}
 
 	var Index$2 = /*#__PURE__*/function (_SvelteComponent) {
@@ -8864,13 +9237,14 @@ var App = (function () {
 
 	    _this = _super.call(this);
 	    init(_assertThisInitialized(_this), options, instance$4, create_fragment$4, safe_not_equal, {
-	      sidebar: 11,
-	      data: 3,
-	      navigate: 12,
+	      sidebar: 14,
+	      data: 4,
+	      navigate: 15,
 	      isPreviewMode: 0,
-	      token: 4,
+	      token: 16,
 	      openedModal: 1,
-	      currentTemplate: 2
+	      currentTemplate: 2,
+	      elemWidth: 3
 	    });
 	    return _this;
 	  }
@@ -9165,6 +9539,83 @@ var App = (function () {
 	  return Index;
 	}(SvelteComponent);
 
+	var redaxios = (function e(t) {
+	  function r(e, t, n) {
+	    var a,
+	        o = {};
+	    if (Array.isArray(e)) return e.concat(t);
+
+	    for (a in e) {
+	      o[n ? a.toLowerCase() : a] = e[a];
+	    }
+
+	    for (a in t) {
+	      var i = n ? a.toLowerCase() : a,
+	          u = t[a];
+	      o[i] = i in o && "object" == _typeof(u) ? r(o[i], u, "headers" === i) : u;
+	    }
+
+	    return o;
+	  }
+
+	  function n(e, n, a, o) {
+	    "string" != typeof e && (e = (n = e).url);
+	    var i = {
+	      config: n
+	    },
+	        u = r(t, n),
+	        s = {},
+	        c = o || u.data;
+	    (u.transformRequest || []).map(function (e) {
+	      c = e(c, u.headers) || c;
+	    }), c && "object" == _typeof(c) && "function" != typeof c.append && (c = JSON.stringify(c), s["content-type"] = "application/json");
+	    var f = "undefined" != typeof document && document.cookie.match(RegExp("(^|; )" + u.xsrfCookieName + "=([^;]*)"));
+
+	    if (f && (s[u.xsrfHeaderName] = f[2]), u.auth && (s.authorization = u.auth), u.baseURL && (e = e.replace(/^(?!.*\/\/)\/?(.*)$/, u.baseURL + "/$1")), u.params) {
+	      var p = ~e.indexOf("?") ? "&" : "?";
+	      e += p + (u.paramsSerializer ? u.paramsSerializer(u.params) : new URLSearchParams(u.params));
+	    }
+
+	    return (u.fetch || fetch)(e, {
+	      method: a || u.method,
+	      body: c,
+	      headers: r(u.headers, s, !0),
+	      credentials: u.withCredentials ? "include" : "same-origin"
+	    }).then(function (e) {
+	      for (var t in e) {
+	        "function" != typeof e[t] && (i[t] = e[t]);
+	      }
+
+	      var r = u.validateStatus ? u.validateStatus(e.status) : e.ok;
+	      return "stream" == u.responseType ? (i.data = e.body, i) : e[u.responseType || "text"]().then(function (e) {
+	        i.data = e, i.data = JSON.parse(e);
+	      }).catch(Object).then(function () {
+	        return r ? i : Promise.reject(i);
+	      });
+	    });
+	  }
+
+	  return t = t || {}, n.request = n, n.get = function (e, t) {
+	    return n(e, t, "get");
+	  }, n.delete = function (e, t) {
+	    return n(e, t, "delete");
+	  }, n.head = function (e, t) {
+	    return n(e, t, "head");
+	  }, n.options = function (e, t) {
+	    return n(e, t, "options");
+	  }, n.post = function (e, t, r) {
+	    return n(e, r, "post", t);
+	  }, n.put = function (e, t, r) {
+	    return n(e, r, "put", t);
+	  }, n.patch = function (e, t, r) {
+	    return n(e, r, "patch", t);
+	  }, n.all = Promise.all.bind(Promise), n.spread = function (e) {
+	    return function (t) {
+	      return e.apply(this, t);
+	    };
+	  }, n.CancelToken = "function" == typeof AbortController ? AbortController : Object, n.defaults = t, n.create = e, n;
+	})();
+
 	function _createSuper$2(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$2(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
 	function _isNativeReflectConstruct$2() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
@@ -9332,17 +9783,122 @@ var App = (function () {
 
 	function get_each_context(ctx, list, i) {
 	  var child_ctx = ctx.slice();
-	  child_ctx[27] = list[i];
-	  child_ctx[28] = list;
-	  child_ctx[29] = i;
+	  child_ctx[34] = list[i];
+	  child_ctx[35] = list;
+	  child_ctx[36] = i;
 	  return child_ctx;
 	}
 
 	function get_each_context_1(ctx, list, i) {
 	  var child_ctx = ctx.slice();
-	  child_ctx[30] = list[i];
+	  child_ctx[37] = list[i];
 	  return child_ctx;
-	} // (134:4) {#each filteredCollections as collection}
+	} // (125:0) {#if !!data && !!currentTemplate}
+
+
+	function create_if_block(ctx) {
+	  var modal;
+	  var updating_shown;
+	  var updating_currentTemplate;
+	  var current;
+
+	  function modal_shown_binding(value) {
+	    /*modal_shown_binding*/
+	    ctx[22](value);
+	  }
+
+	  function modal_currentTemplate_binding(value) {
+	    /*modal_currentTemplate_binding*/
+	    ctx[23](value);
+	  }
+
+	  var modal_props = {
+	    components:
+	    /*data*/
+	    ctx[3].components
+	  };
+
+	  if (
+	  /*openedModal*/
+	  ctx[1] !== void 0) {
+	    modal_props.shown =
+	    /*openedModal*/
+	    ctx[1];
+	  }
+
+	  if (
+	  /*currentTemplate*/
+	  ctx[0] !== void 0) {
+	    modal_props.currentTemplate =
+	    /*currentTemplate*/
+	    ctx[0];
+	  }
+
+	  modal = new Modal({
+	    props: modal_props
+	  });
+	  binding_callbacks.push(function () {
+	    return bind(modal, 'shown', modal_shown_binding);
+	  });
+	  binding_callbacks.push(function () {
+	    return bind(modal, 'currentTemplate', modal_currentTemplate_binding);
+	  });
+	  return {
+	    c: function c() {
+	      create_component(modal.$$.fragment);
+	    },
+	    m: function m(target, anchor) {
+	      mount_component(modal, target, anchor);
+	      current = true;
+	    },
+	    p: function p(ctx, dirty) {
+	      var modal_changes = {};
+	      if (dirty[0] &
+	      /*data*/
+	      8) modal_changes.components =
+	      /*data*/
+	      ctx[3].components;
+
+	      if (!updating_shown && dirty[0] &
+	      /*openedModal*/
+	      2) {
+	        updating_shown = true;
+	        modal_changes.shown =
+	        /*openedModal*/
+	        ctx[1];
+	        add_flush_callback(function () {
+	          return updating_shown = false;
+	        });
+	      }
+
+	      if (!updating_currentTemplate && dirty[0] &
+	      /*currentTemplate*/
+	      1) {
+	        updating_currentTemplate = true;
+	        modal_changes.currentTemplate =
+	        /*currentTemplate*/
+	        ctx[0];
+	        add_flush_callback(function () {
+	          return updating_currentTemplate = false;
+	        });
+	      }
+
+	      modal.$set(modal_changes);
+	    },
+	    i: function i(local) {
+	      if (current) return;
+	      transition_in(modal.$$.fragment, local);
+	      current = true;
+	    },
+	    o: function o(local) {
+	      transition_out(modal.$$.fragment, local);
+	      current = false;
+	    },
+	    d: function d(detaching) {
+	      destroy_component(modal, detaching);
+	    }
+	  };
+	} // (156:4) {#each filteredCollections as collection}
 
 
 	function create_each_block_1(ctx) {
@@ -9352,18 +9908,18 @@ var App = (function () {
 	  function click_handler() {
 	    return (
 	      /*click_handler*/
-	      ctx[18](
+	      ctx[24](
 	      /*collection*/
-	      ctx[30])
+	      ctx[37])
 	    );
 	  }
 
 	  function token_click_handler() {
 	    return (
 	      /*token_click_handler*/
-	      ctx[19](
+	      ctx[25](
 	      /*collection*/
-	      ctx[30])
+	      ctx[37])
 	    );
 	  }
 
@@ -9371,12 +9927,12 @@ var App = (function () {
 	    props: {
 	      name:
 	      /*collection*/
-	      ctx[30].name,
+	      ctx[37].name,
 	      deleteIcon:
 	      /*selectedCollections*/
-	      ctx[2].includes(
+	      ctx[5].includes(
 	      /*collection*/
-	      ctx[30]._id)
+	      ctx[37]._id)
 	    }
 	  });
 	  chip.$on("click", click_handler);
@@ -9394,16 +9950,16 @@ var App = (function () {
 	      var chip_changes = {};
 	      if (dirty[0] &
 	      /*filteredCollections*/
-	      32) chip_changes.name =
+	      256) chip_changes.name =
 	      /*collection*/
-	      ctx[30].name;
+	      ctx[37].name;
 	      if (dirty[0] &
 	      /*selectedCollections, filteredCollections*/
-	      36) chip_changes.deleteIcon =
+	      288) chip_changes.deleteIcon =
 	      /*selectedCollections*/
-	      ctx[2].includes(
+	      ctx[5].includes(
 	      /*collection*/
-	      ctx[30]._id);
+	      ctx[37]._id);
 	      chip.$set(chip_changes);
 	    },
 	    i: function i(local) {
@@ -9419,7 +9975,7 @@ var App = (function () {
 	      destroy_component(chip, detaching);
 	    }
 	  };
-	} // (145:4) {#each filteredTemplates as flow (flow._id)}
+	} // (167:4) {#each filteredTemplates as flow (flow._id)}
 
 
 	function create_each_block(key_1, ctx) {
@@ -9430,28 +9986,37 @@ var App = (function () {
 
 	  function flow_enabled_binding(value) {
 	    /*flow_enabled_binding*/
-	    ctx[20](value,
+	    ctx[26](value,
 	    /*flow*/
-	    ctx[27]);
+	    ctx[34]);
+	  }
+
+	  function click_handler_1() {
+	    return (
+	      /*click_handler_1*/
+	      ctx[27](
+	      /*flow*/
+	      ctx[34])
+	    );
 	  }
 
 	  var flow_props = {
 	    description:
 	    /*flow*/
-	    ctx[27].description,
+	    ctx[34].description,
 	    images:
 	    /*getImages*/
-	    ctx[1](
+	    ctx[4](
 	    /*flow*/
-	    ctx[27])
+	    ctx[34])
 	  };
 
 	  if (
 	  /*flow*/
-	  ctx[27].enabled !== void 0) {
+	  ctx[34].enabled !== void 0) {
 	    flow_props.enabled =
 	    /*flow*/
-	    ctx[27].enabled;
+	    ctx[34].enabled;
 	  }
 
 	  flow = new Flow({
@@ -9460,6 +10025,7 @@ var App = (function () {
 	  binding_callbacks.push(function () {
 	    return bind(flow, 'enabled', flow_enabled_binding);
 	  });
+	  flow.$on("click", click_handler_1);
 	  return {
 	    key: key_1,
 	    first: null,
@@ -9478,24 +10044,24 @@ var App = (function () {
 	      var flow_changes = {};
 	      if (dirty[0] &
 	      /*filteredTemplates*/
-	      8) flow_changes.description =
+	      64) flow_changes.description =
 	      /*flow*/
-	      ctx[27].description;
+	      ctx[34].description;
 	      if (dirty[0] &
 	      /*filteredTemplates*/
-	      8) flow_changes.images =
+	      64) flow_changes.images =
 	      /*getImages*/
-	      ctx[1](
+	      ctx[4](
 	      /*flow*/
-	      ctx[27]);
+	      ctx[34]);
 
 	      if (!updating_enabled && dirty[0] &
 	      /*filteredTemplates*/
-	      8) {
+	      64) {
 	        updating_enabled = true;
 	        flow_changes.enabled =
 	        /*flow*/
-	        ctx[27].enabled;
+	        ctx[34].enabled;
 	        add_flush_callback(function () {
 	          return updating_enabled = false;
 	        });
@@ -9520,44 +10086,50 @@ var App = (function () {
 	}
 
 	function create_fragment$1(ctx) {
+	  var t0;
 	  var div5;
 	  var div0;
 	  var backbutton;
-	  var t0;
+	  var t1;
 	  var div2;
 	  var img;
 	  var img_src_value;
 	  var img_alt_value;
-	  var t1;
+	  var t2;
 	  var div1;
 	  var h2;
-	  var t2_value =
+	  var t3_value =
 	  /*component*/
-	  ctx[4].name + "";
-	  var t2;
+	  ctx[7].name + "";
 	  var t3;
-	  var p;
-	  var t4_value =
-	  /*component*/
-	  ctx[4].description + "";
 	  var t4;
+	  var p;
+	  var t5_value =
+	  /*component*/
+	  ctx[7].description + "";
 	  var t5;
+	  var t6;
 	  var h3;
-	  var t7;
-	  var div3;
 	  var t8;
+	  var div3;
+	  var t9;
 	  var div4;
 	  var each_blocks = [];
 	  var each1_lookup = new Map();
 	  var div4_class_value;
 	  var current;
+	  var if_block = !!
+	  /*data*/
+	  ctx[3] && !!
+	  /*currentTemplate*/
+	  ctx[0] && create_if_block(ctx);
 	  backbutton = new BackButton({});
 	  backbutton.$on("click",
 	  /*onBackButtonClick*/
-	  ctx[7]);
+	  ctx[11]);
 	  var each_value_1 =
 	  /*filteredCollections*/
-	  ctx[5];
+	  ctx[8];
 	  var each_blocks_1 = [];
 
 	  for (var i = 0; i < each_value_1.length; i += 1) {
@@ -9572,12 +10144,12 @@ var App = (function () {
 
 	  var each_value =
 	  /*filteredTemplates*/
-	  ctx[3];
+	  ctx[6];
 
 	  var get_key = function get_key(ctx) {
 	    return (
 	      /*flow*/
-	      ctx[27]._id
+	      ctx[34]._id
 	    );
 	  };
 
@@ -9589,30 +10161,32 @@ var App = (function () {
 
 	  return {
 	    c: function c() {
+	      if (if_block) if_block.c();
+	      t0 = space();
 	      div5 = element("div");
 	      div0 = element("div");
 	      create_component(backbutton.$$.fragment);
-	      t0 = space();
+	      t1 = space();
 	      div2 = element("div");
 	      img = element("img");
-	      t1 = space();
+	      t2 = space();
 	      div1 = element("div");
 	      h2 = element("h2");
-	      t2 = text(t2_value);
-	      t3 = space();
+	      t3 = text(t3_value);
+	      t4 = space();
 	      p = element("p");
-	      t4 = text(t4_value);
-	      t5 = space();
+	      t5 = text(t5_value);
+	      t6 = space();
 	      h3 = element("h3");
 	      h3.textContent = "Flows";
-	      t7 = space();
+	      t8 = space();
 	      div3 = element("div");
 
 	      for (var _i2 = 0; _i2 < each_blocks_1.length; _i2 += 1) {
 	        each_blocks_1[_i2].c();
 	      }
 
-	      t8 = space();
+	      t9 = space();
 	      div4 = element("div");
 
 	      for (var _i3 = 0; _i3 < each_blocks.length; _i3 += 1) {
@@ -9622,42 +10196,44 @@ var App = (function () {
 	      attr(div0, "class", "back-button");
 	      if (!src_url_equal(img.src, img_src_value =
 	      /*component*/
-	      ctx[4].logo)) attr(img, "src", img_src_value);
+	      ctx[7].logo)) attr(img, "src", img_src_value);
 	      attr(img, "alt", img_alt_value = "" + (
 	      /*component*/
-	      ctx[4].name + " logo"));
+	      ctx[7].name + " logo"));
 	      attr(div1, "class", "component-content");
 	      attr(div2, "class", "component");
 	      attr(div3, "class", "collections-grid");
 	      attr(div4, "class", div4_class_value = "apps-grid " +
 	      /*breakpoints*/
-	      ctx[0]);
+	      ctx[2]);
 	      attr(div5, "class", "main-container");
 	    },
 	    m: function m(target, anchor) {
+	      if (if_block) if_block.m(target, anchor);
+	      insert(target, t0, anchor);
 	      insert(target, div5, anchor);
 	      append(div5, div0);
 	      mount_component(backbutton, div0, null);
-	      append(div5, t0);
+	      append(div5, t1);
 	      append(div5, div2);
 	      append(div2, img);
-	      append(div2, t1);
+	      append(div2, t2);
 	      append(div2, div1);
 	      append(div1, h2);
-	      append(h2, t2);
-	      append(div1, t3);
+	      append(h2, t3);
+	      append(div1, t4);
 	      append(div1, p);
-	      append(p, t4);
-	      append(div5, t5);
+	      append(p, t5);
+	      append(div5, t6);
 	      append(div5, h3);
-	      append(div5, t7);
+	      append(div5, t8);
 	      append(div5, div3);
 
 	      for (var _i4 = 0; _i4 < each_blocks_1.length; _i4 += 1) {
 	        each_blocks_1[_i4].m(div3, null);
 	      }
 
-	      append(div5, t8);
+	      append(div5, t9);
 	      append(div5, div4);
 
 	      for (var _i5 = 0; _i5 < each_blocks.length; _i5 += 1) {
@@ -9667,39 +10243,66 @@ var App = (function () {
 	      current = true;
 	    },
 	    p: function p(ctx, dirty) {
+	      if (!!
+	      /*data*/
+	      ctx[3] && !!
+	      /*currentTemplate*/
+	      ctx[0]) {
+	        if (if_block) {
+	          if_block.p(ctx, dirty);
+
+	          if (dirty[0] &
+	          /*data, currentTemplate*/
+	          9) {
+	            transition_in(if_block, 1);
+	          }
+	        } else {
+	          if_block = create_if_block(ctx);
+	          if_block.c();
+	          transition_in(if_block, 1);
+	          if_block.m(t0.parentNode, t0);
+	        }
+	      } else if (if_block) {
+	        group_outros();
+	        transition_out(if_block, 1, 1, function () {
+	          if_block = null;
+	        });
+	        check_outros();
+	      }
+
 	      if (!current || dirty[0] &
 	      /*component*/
-	      16 && !src_url_equal(img.src, img_src_value =
+	      128 && !src_url_equal(img.src, img_src_value =
 	      /*component*/
-	      ctx[4].logo)) {
+	      ctx[7].logo)) {
 	        attr(img, "src", img_src_value);
 	      }
 
 	      if (!current || dirty[0] &
 	      /*component*/
-	      16 && img_alt_value !== (img_alt_value = "" + (
+	      128 && img_alt_value !== (img_alt_value = "" + (
 	      /*component*/
-	      ctx[4].name + " logo"))) {
+	      ctx[7].name + " logo"))) {
 	        attr(img, "alt", img_alt_value);
 	      }
 
 	      if ((!current || dirty[0] &
 	      /*component*/
-	      16) && t2_value !== (t2_value =
+	      128) && t3_value !== (t3_value =
 	      /*component*/
-	      ctx[4].name + "")) set_data(t2, t2_value);
+	      ctx[7].name + "")) set_data(t3, t3_value);
 	      if ((!current || dirty[0] &
 	      /*component*/
-	      16) && t4_value !== (t4_value =
+	      128) && t5_value !== (t5_value =
 	      /*component*/
-	      ctx[4].description + "")) set_data(t4, t4_value);
+	      ctx[7].description + "")) set_data(t5, t5_value);
 
 	      if (dirty[0] &
 	      /*filteredCollections, selectedCollections, onCollectionClick, onTokenCollectionClick*/
-	      804) {
+	      12576) {
 	        each_value_1 =
 	        /*filteredCollections*/
-	        ctx[5];
+	        ctx[8];
 
 	        var _i6;
 
@@ -9731,11 +10334,11 @@ var App = (function () {
 	      }
 
 	      if (dirty[0] &
-	      /*filteredTemplates, getImages*/
-	      10) {
+	      /*filteredTemplates, getImages, onEnabledChange*/
+	      592) {
 	        each_value =
 	        /*filteredTemplates*/
-	        ctx[3];
+	        ctx[6];
 	        group_outros();
 	        each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each1_lookup, div4, outro_and_destroy_block, create_each_block, null, get_each_context);
 	        check_outros();
@@ -9743,14 +10346,15 @@ var App = (function () {
 
 	      if (!current || dirty[0] &
 	      /*breakpoints*/
-	      1 && div4_class_value !== (div4_class_value = "apps-grid " +
+	      4 && div4_class_value !== (div4_class_value = "apps-grid " +
 	      /*breakpoints*/
-	      ctx[0])) {
+	      ctx[2])) {
 	        attr(div4, "class", div4_class_value);
 	      }
 	    },
 	    i: function i(local) {
 	      if (current) return;
+	      transition_in(if_block);
 	      transition_in(backbutton.$$.fragment, local);
 
 	      for (var _i7 = 0; _i7 < each_value_1.length; _i7 += 1) {
@@ -9764,6 +10368,7 @@ var App = (function () {
 	      current = true;
 	    },
 	    o: function o(local) {
+	      transition_out(if_block);
 	      transition_out(backbutton.$$.fragment, local);
 	      each_blocks_1 = each_blocks_1.filter(Boolean_1);
 
@@ -9778,6 +10383,8 @@ var App = (function () {
 	      current = false;
 	    },
 	    d: function d(detaching) {
+	      if (if_block) if_block.d(detaching);
+	      if (detaching) detach(t0);
 	      if (detaching) detach(div5);
 	      destroy_component(backbutton);
 	      destroy_each(each_blocks_1, detaching);
@@ -9834,10 +10441,26 @@ var App = (function () {
 
 	  var navigate = $$props.navigate;
 	  var breakpoints = $$props.breakpoints;
+	  var currentTemplate = $$props.currentTemplate;
 	  var data = $$props.data;
+	  var _$$props$openedModal = $$props.openedModal,
+	      openedModal = _$$props$openedModal === void 0 ? false : _$$props$openedModal;
+	  var _$$props$isPreviewMod = $$props.isPreviewMode,
+	      isPreviewMode = _$$props$isPreviewMod === void 0 ? false : _$$props$isPreviewMod;
+
+	  var onEnabledChange = function onEnabledChange(template) {
+	    if (!template.enabled && !isPreviewMode) {
+	      template.enabled = true;
+	      $$invalidate(1, openedModal = true);
+	      $$invalidate(0, currentTemplate = template);
+	    } else {
+	      template.enabled = false;
+	    }
+	  };
+
 	  var params = useParams();
 	  component_subscribe($$self, params, function (value) {
-	    return $$invalidate(17, $params = value);
+	    return $$invalidate(21, $params = value);
 	  });
 	  var selectedCollections = [];
 
@@ -9860,14 +10483,24 @@ var App = (function () {
 	  };
 
 	  var onCollectionClick = function onCollectionClick(collectionId) {
-	    $$invalidate(2, selectedCollections = [].concat(_toConsumableArray(selectedCollections), [collectionId]));
+	    $$invalidate(5, selectedCollections = [].concat(_toConsumableArray(selectedCollections), [collectionId]));
 	  };
 
 	  var onTokenCollectionClick = function onTokenCollectionClick(collectionId) {
-	    $$invalidate(2, selectedCollections = selectedCollections.filter(function (collId) {
+	    $$invalidate(5, selectedCollections = selectedCollections.filter(function (collId) {
 	      return collId !== collectionId;
 	    }));
 	  };
+
+	  function modal_shown_binding(value) {
+	    openedModal = value;
+	    $$invalidate(1, openedModal);
+	  }
+
+	  function modal_currentTemplate_binding(value) {
+	    currentTemplate = value;
+	    $$invalidate(0, currentTemplate);
+	  }
 
 	  var click_handler = function click_handler(collection) {
 	    return onCollectionClick(collection._id);
@@ -9880,35 +10513,42 @@ var App = (function () {
 	  function flow_enabled_binding(value, flow) {
 	    if ($$self.$$.not_equal(flow.enabled, value)) {
 	      flow.enabled = value;
-	      (((((($$invalidate(3, filteredTemplates), $$invalidate(15, templates)), $$invalidate(4, component)), $$invalidate(2, selectedCollections)), $$invalidate(11, data)), $$invalidate(12, components)), $$invalidate(16, id)), $$invalidate(17, $params);
+	      (((((($$invalidate(6, filteredTemplates), $$invalidate(19, templates)), $$invalidate(7, component)), $$invalidate(5, selectedCollections)), $$invalidate(3, data)), $$invalidate(16, components)), $$invalidate(20, id)), $$invalidate(21, $params);
 	    }
 	  }
 
+	  var click_handler_1 = function click_handler_1(flow) {
+	    return onEnabledChange(flow);
+	  };
+
 	  $$self.$$set = function ($$props) {
-	    if ('navigate' in $$props) $$invalidate(10, navigate = $$props.navigate);
-	    if ('breakpoints' in $$props) $$invalidate(0, breakpoints = $$props.breakpoints);
-	    if ('data' in $$props) $$invalidate(11, data = $$props.data);
+	    if ('navigate' in $$props) $$invalidate(14, navigate = $$props.navigate);
+	    if ('breakpoints' in $$props) $$invalidate(2, breakpoints = $$props.breakpoints);
+	    if ('currentTemplate' in $$props) $$invalidate(0, currentTemplate = $$props.currentTemplate);
+	    if ('data' in $$props) $$invalidate(3, data = $$props.data);
+	    if ('openedModal' in $$props) $$invalidate(1, openedModal = $$props.openedModal);
+	    if ('isPreviewMode' in $$props) $$invalidate(15, isPreviewMode = $$props.isPreviewMode);
 	  };
 
 	  $$self.$$.update = function () {
 	    if ($$self.$$.dirty[0] &
 	    /*$params*/
-	    131072) {
-	      $$invalidate(16, id = $params._id);
+	    2097152) {
+	      $$invalidate(20, id = $params._id);
 	    }
 
 	    if ($$self.$$.dirty[0] &
 	    /*data*/
-	    2048) {
+	    8) {
 	      var _data;
 
-	      $$invalidate(12, (_data = data, components = _data.components, templates = _data.templates, collections = _data.collections, _data), components, ($$invalidate(15, templates), $$invalidate(11, data)), ($$invalidate(14, collections), $$invalidate(11, data)));
+	      $$invalidate(16, (_data = data, components = _data.components, templates = _data.templates, collections = _data.collections, _data), components, ($$invalidate(19, templates), $$invalidate(3, data)), ($$invalidate(18, collections), $$invalidate(3, data)));
 	    }
 
 	    if ($$self.$$.dirty[0] &
 	    /*components, id*/
-	    69632) {
-	      $$invalidate(4, component = components.find(function (_ref3) {
+	    1114112) {
+	      $$invalidate(7, component = components.find(function (_ref3) {
 	        var _id = _ref3._id;
 	        return _id === id;
 	      }));
@@ -9916,8 +10556,8 @@ var App = (function () {
 
 	    if ($$self.$$.dirty[0] &
 	    /*templates, component, selectedCollections*/
-	    32788) {
-	      $$invalidate(3, filteredTemplates = templates.filter(function (_ref4) {
+	    524448) {
+	      $$invalidate(6, filteredTemplates = templates.filter(function (_ref4) {
 	        var graph = _ref4.graph,
 	            collectionIds = _ref4.collectionIds;
 	        return graph.nodes.some(function (_ref5) {
@@ -9931,8 +10571,8 @@ var App = (function () {
 
 	    if ($$self.$$.dirty[0] &
 	    /*filteredTemplates*/
-	    8) {
-	      $$invalidate(13, collectionIds = _toConsumableArray(new Set(filteredTemplates.map(function (_ref6) {
+	    64) {
+	      $$invalidate(17, collectionIds = _toConsumableArray(new Set(filteredTemplates.map(function (_ref6) {
 	        var collectionIds = _ref6.collectionIds;
 	        return collectionIds;
 	      }).flat())));
@@ -9940,15 +10580,15 @@ var App = (function () {
 
 	    if ($$self.$$.dirty[0] &
 	    /*collections, collectionIds*/
-	    24576) {
-	      $$invalidate(5, filteredCollections = collections.filter(function (_ref7) {
+	    393216) {
+	      $$invalidate(8, filteredCollections = collections.filter(function (_ref7) {
 	        var _id = _ref7._id;
 	        return collectionIds.includes(_id);
 	      }));
 	    }
 	  };
 
-	  return [breakpoints, getImages, selectedCollections, filteredTemplates, component, filteredCollections, params, onBackButtonClick, onCollectionClick, onTokenCollectionClick, navigate, data, components, collectionIds, collections, templates, id, $params, click_handler, token_click_handler, flow_enabled_binding];
+	  return [currentTemplate, openedModal, breakpoints, data, getImages, selectedCollections, filteredTemplates, component, filteredCollections, onEnabledChange, params, onBackButtonClick, onCollectionClick, onTokenCollectionClick, navigate, isPreviewMode, components, collectionIds, collections, templates, id, $params, modal_shown_binding, modal_currentTemplate_binding, click_handler, token_click_handler, flow_enabled_binding, click_handler_1];
 	}
 
 	var Index = /*#__PURE__*/function (_SvelteComponent) {
@@ -9963,10 +10603,13 @@ var App = (function () {
 
 	    _this = _super.call(this);
 	    init(_assertThisInitialized(_this), options, instance$1, create_fragment$1, safe_not_equal, {
-	      navigate: 10,
-	      breakpoints: 0,
-	      data: 11,
-	      getImages: 1
+	      navigate: 14,
+	      breakpoints: 2,
+	      currentTemplate: 0,
+	      data: 3,
+	      openedModal: 1,
+	      isPreviewMode: 15,
+	      getImages: 4
 	    }, null, [-1, -1]);
 	    return _this;
 	  }
@@ -9974,23 +10617,99 @@ var App = (function () {
 	  _createClass(Index, [{
 	    key: "getImages",
 	    get: function get() {
-	      return this.$$.ctx[1];
+	      return this.$$.ctx[4];
 	    }
 	  }]);
 
 	  return Index;
 	}(SvelteComponent);
 
+	const endpoint = "https://api.platform.openintegrationhub.com/icenter";
+	const getHeaders = (token) => ({
+	    mode: "no-cors",
+	    "Cache-Control": "no-cache, no-store, must-revalidate",
+	    Pragma: "no-cache",
+	    "Content-Type": "application/json",
+	    Accept: "application/json",
+	    Authorization: `Bearer ${token}`,
+	});
+	const getData = async (token) => {
+	    try {
+	        const response = await redaxios(`${endpoint}/application`, {
+	            method: "GET",
+	            headers: getHeaders(token),
+	        });
+	        return response.data.data;
+	    }
+	    catch (error) {
+	        console.error(error);
+	    }
+	};
+	const getFilters = async (token) => {
+	    try {
+	        const response = await redaxios(`${endpoint}/application/filters/`, {
+	            method: "GET",
+	            headers: getHeaders(token),
+	        });
+	        return response.data.data;
+	    }
+	    catch (error) {
+	        console.error(error);
+	    }
+	};
+
 	function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
 	function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
-	function create_if_block(ctx) {
+	function create_default_slot(ctx) {
+	  var div1;
+	  var header;
+	  var updating_isPreviewMode;
+	  var t0;
+	  var div0;
 	  var route0;
-	  var t;
+	  var t1;
 	  var route1;
 	  var updating_data;
+	  var t2;
+	  var route2;
+	  var updating_sidebar;
+	  var updating_isPreviewMode_1;
+	  var updating_data_1;
+	  var updating_elemWidth;
+	  var div1_class_value;
+	  var div1_resize_listener;
 	  var current;
+
+	  function header_isPreviewMode_binding(value) {
+	    /*header_isPreviewMode_binding*/
+	    ctx[8](value);
+	  }
+
+	  var header_props = {
+	    navigate:
+	    /*memoryHistory*/
+	    ctx[7].navigate,
+	    elemWidth:
+	    /*elWidth*/
+	    ctx[2]
+	  };
+
+	  if (
+	  /*ispreview*/
+	  ctx[0] !== void 0) {
+	    header_props.isPreviewMode =
+	    /*ispreview*/
+	    ctx[0];
+	  }
+
+	  header = new Header({
+	    props: header_props
+	  });
+	  binding_callbacks.push(function () {
+	    return bind(header, 'isPreviewMode', header_isPreviewMode_binding);
+	  });
 	  route0 = new Route$1({
 	    props: {
 	      path: "/:_id",
@@ -10004,7 +10723,7 @@ var App = (function () {
 	      ctx[3],
 	      navigate:
 	      /*memoryHistory*/
-	      ctx[6].navigate,
+	      ctx[7].navigate,
 	      token:
 	      /*token*/
 	      ctx[1]
@@ -10013,7 +10732,7 @@ var App = (function () {
 
 	  function route1_data_binding(value) {
 	    /*route1_data_binding*/
-	    ctx[8](value);
+	    ctx[9](value);
 	  }
 
 	  var route1_props = {
@@ -10022,7 +10741,7 @@ var App = (function () {
 	    primary: false,
 	    navigate:
 	    /*memoryHistory*/
-	    ctx[6].navigate,
+	    ctx[7].navigate,
 	    token:
 	    /*token*/
 	    ctx[1]
@@ -10042,19 +10761,147 @@ var App = (function () {
 	  binding_callbacks.push(function () {
 	    return bind(route1, 'data', route1_data_binding);
 	  });
+
+	  function route2_sidebar_binding(value) {
+	    /*route2_sidebar_binding*/
+	    ctx[10](value);
+	  }
+
+	  function route2_isPreviewMode_binding(value) {
+	    /*route2_isPreviewMode_binding*/
+	    ctx[11](value);
+	  }
+
+	  function route2_data_binding(value) {
+	    /*route2_data_binding*/
+	    ctx[12](value);
+	  }
+
+	  function route2_elemWidth_binding(value) {
+	    /*route2_elemWidth_binding*/
+	    ctx[13](value);
+	  }
+
+	  var route2_props = {
+	    path: "/",
+	    component: Index$2,
+	    primary: false,
+	    navigate:
+	    /*memoryHistory*/
+	    ctx[7].navigate,
+	    token:
+	    /*token*/
+	    ctx[1]
+	  };
+
+	  if (
+	  /*filters*/
+	  ctx[4] !== void 0) {
+	    route2_props.sidebar =
+	    /*filters*/
+	    ctx[4];
+	  }
+
+	  if (
+	  /*ispreview*/
+	  ctx[0] !== void 0) {
+	    route2_props.isPreviewMode =
+	    /*ispreview*/
+	    ctx[0];
+	  }
+
+	  if (
+	  /*data*/
+	  ctx[5] !== void 0) {
+	    route2_props.data =
+	    /*data*/
+	    ctx[5];
+	  }
+
+	  if (
+	  /*elWidth*/
+	  ctx[2] !== void 0) {
+	    route2_props.elemWidth =
+	    /*elWidth*/
+	    ctx[2];
+	  }
+
+	  route2 = new Route$1({
+	    props: route2_props
+	  });
+	  binding_callbacks.push(function () {
+	    return bind(route2, 'sidebar', route2_sidebar_binding);
+	  });
+	  binding_callbacks.push(function () {
+	    return bind(route2, 'isPreviewMode', route2_isPreviewMode_binding);
+	  });
+	  binding_callbacks.push(function () {
+	    return bind(route2, 'data', route2_data_binding);
+	  });
+	  binding_callbacks.push(function () {
+	    return bind(route2, 'elemWidth', route2_elemWidth_binding);
+	  });
 	  return {
 	    c: function c() {
+	      div1 = element("div");
+	      create_component(header.$$.fragment);
+	      t0 = space();
+	      div0 = element("div");
 	      create_component(route0.$$.fragment);
-	      t = space();
+	      t1 = space();
 	      create_component(route1.$$.fragment);
+	      t2 = space();
+	      create_component(route2.$$.fragment);
+	      attr(div0, "class", "content");
+	      toggle_class(div0, "contentBreakpoint",
+	      /*contentBreakpoint*/
+	      ctx[6]);
+	      attr(div1, "class", div1_class_value = "background " +
+	      /*currentBreakpoint*/
+	      ctx[3]);
+	      add_render_callback(function () {
+	        return (
+	          /*div1_elementresize_handler*/
+	          ctx[14].call(div1)
+	        );
+	      });
 	    },
 	    m: function m(target, anchor) {
-	      mount_component(route0, target, anchor);
-	      insert(target, t, anchor);
-	      mount_component(route1, target, anchor);
+	      insert(target, div1, anchor);
+	      mount_component(header, div1, null);
+	      append(div1, t0);
+	      append(div1, div0);
+	      mount_component(route0, div0, null);
+	      append(div0, t1);
+	      mount_component(route1, div0, null);
+	      append(div0, t2);
+	      mount_component(route2, div0, null);
+	      div1_resize_listener = add_resize_listener(div1,
+	      /*div1_elementresize_handler*/
+	      ctx[14].bind(div1));
 	      current = true;
 	    },
 	    p: function p(ctx, dirty) {
+	      var header_changes = {};
+	      if (dirty &
+	      /*elWidth*/
+	      4) header_changes.elemWidth =
+	      /*elWidth*/
+	      ctx[2];
+
+	      if (!updating_isPreviewMode && dirty &
+	      /*ispreview*/
+	      1) {
+	        updating_isPreviewMode = true;
+	        header_changes.isPreviewMode =
+	        /*ispreview*/
+	        ctx[0];
+	        add_flush_callback(function () {
+	          return updating_isPreviewMode = false;
+	        });
+	      }
+
+	      header.$set(header_changes);
 	      var route0_changes = {};
 	      if (dirty &
 	      /*data*/
@@ -10092,213 +10939,10 @@ var App = (function () {
 	      }
 
 	      route1.$set(route1_changes);
-	    },
-	    i: function i(local) {
-	      if (current) return;
-	      transition_in(route0.$$.fragment, local);
-	      transition_in(route1.$$.fragment, local);
-	      current = true;
-	    },
-	    o: function o(local) {
-	      transition_out(route0.$$.fragment, local);
-	      transition_out(route1.$$.fragment, local);
-	      current = false;
-	    },
-	    d: function d(detaching) {
-	      destroy_component(route0, detaching);
-	      if (detaching) detach(t);
-	      destroy_component(route1, detaching);
-	    }
-	  };
-	} // (54:0) <Router history={memoryHistory}>
-
-
-	function create_default_slot(ctx) {
-	  var div1;
-	  var header;
-	  var updating_isPreviewMode;
-	  var t0;
-	  var div0;
-	  var t1;
-	  var route;
-	  var updating_sidebar;
-	  var updating_isPreviewMode_1;
-	  var updating_data;
-	  var div1_class_value;
-	  var div1_resize_listener;
-	  var current;
-
-	  function header_isPreviewMode_binding(value) {
-	    /*header_isPreviewMode_binding*/
-	    ctx[7](value);
-	  }
-
-	  var header_props = {
-	    navigate:
-	    /*memoryHistory*/
-	    ctx[6].navigate
-	  };
-
-	  if (
-	  /*ispreview*/
-	  ctx[0] !== void 0) {
-	    header_props.isPreviewMode =
-	    /*ispreview*/
-	    ctx[0];
-	  }
-
-	  header = new Header({
-	    props: header_props
-	  });
-	  binding_callbacks.push(function () {
-	    return bind(header, 'isPreviewMode', header_isPreviewMode_binding);
-	  });
-	  var if_block = !
-	  /*ispreview*/
-	  ctx[0] && create_if_block(ctx);
-
-	  function route_sidebar_binding(value) {
-	    /*route_sidebar_binding*/
-	    ctx[9](value);
-	  }
-
-	  function route_isPreviewMode_binding(value) {
-	    /*route_isPreviewMode_binding*/
-	    ctx[10](value);
-	  }
-
-	  function route_data_binding(value) {
-	    /*route_data_binding*/
-	    ctx[11](value);
-	  }
-
-	  var route_props = {
-	    path: "/",
-	    component: Index$2,
-	    primary: false,
-	    navigate:
-	    /*memoryHistory*/
-	    ctx[6].navigate,
-	    token:
-	    /*token*/
-	    ctx[1]
-	  };
-
-	  if (
-	  /*filters*/
-	  ctx[4] !== void 0) {
-	    route_props.sidebar =
-	    /*filters*/
-	    ctx[4];
-	  }
-
-	  if (
-	  /*ispreview*/
-	  ctx[0] !== void 0) {
-	    route_props.isPreviewMode =
-	    /*ispreview*/
-	    ctx[0];
-	  }
-
-	  if (
-	  /*data*/
-	  ctx[5] !== void 0) {
-	    route_props.data =
-	    /*data*/
-	    ctx[5];
-	  }
-
-	  route = new Route$1({
-	    props: route_props
-	  });
-	  binding_callbacks.push(function () {
-	    return bind(route, 'sidebar', route_sidebar_binding);
-	  });
-	  binding_callbacks.push(function () {
-	    return bind(route, 'isPreviewMode', route_isPreviewMode_binding);
-	  });
-	  binding_callbacks.push(function () {
-	    return bind(route, 'data', route_data_binding);
-	  });
-	  return {
-	    c: function c() {
-	      div1 = element("div");
-	      create_component(header.$$.fragment);
-	      t0 = space();
-	      div0 = element("div");
-	      if (if_block) if_block.c();
-	      t1 = space();
-	      create_component(route.$$.fragment);
-	      attr(div0, "class", "content");
-	      attr(div1, "class", div1_class_value = "background " +
-	      /*currentBreakpoint*/
-	      ctx[3]);
-	      add_render_callback(function () {
-	        return (
-	          /*div1_elementresize_handler*/
-	          ctx[12].call(div1)
-	        );
-	      });
-	    },
-	    m: function m(target, anchor) {
-	      insert(target, div1, anchor);
-	      mount_component(header, div1, null);
-	      append(div1, t0);
-	      append(div1, div0);
-	      if (if_block) if_block.m(div0, null);
-	      append(div0, t1);
-	      mount_component(route, div0, null);
-	      div1_resize_listener = add_resize_listener(div1,
-	      /*div1_elementresize_handler*/
-	      ctx[12].bind(div1));
-	      current = true;
-	    },
-	    p: function p(ctx, dirty) {
-	      var header_changes = {};
-
-	      if (!updating_isPreviewMode && dirty &
-	      /*ispreview*/
-	      1) {
-	        updating_isPreviewMode = true;
-	        header_changes.isPreviewMode =
-	        /*ispreview*/
-	        ctx[0];
-	        add_flush_callback(function () {
-	          return updating_isPreviewMode = false;
-	        });
-	      }
-
-	      header.$set(header_changes);
-
-	      if (!
-	      /*ispreview*/
-	      ctx[0]) {
-	        if (if_block) {
-	          if_block.p(ctx, dirty);
-
-	          if (dirty &
-	          /*ispreview*/
-	          1) {
-	            transition_in(if_block, 1);
-	          }
-	        } else {
-	          if_block = create_if_block(ctx);
-	          if_block.c();
-	          transition_in(if_block, 1);
-	          if_block.m(div0, t1);
-	        }
-	      } else if (if_block) {
-	        group_outros();
-	        transition_out(if_block, 1, 1, function () {
-	          if_block = null;
-	        });
-	        check_outros();
-	      }
-
-	      var route_changes = {};
+	      var route2_changes = {};
 	      if (dirty &
 	      /*token*/
-	      2) route_changes.token =
+	      2) route2_changes.token =
 	      /*token*/
 	      ctx[1];
 
@@ -10306,7 +10950,7 @@ var App = (function () {
 	      /*filters*/
 	      16) {
 	        updating_sidebar = true;
-	        route_changes.sidebar =
+	        route2_changes.sidebar =
 	        /*filters*/
 	        ctx[4];
 	        add_flush_callback(function () {
@@ -10318,7 +10962,7 @@ var App = (function () {
 	      /*ispreview*/
 	      1) {
 	        updating_isPreviewMode_1 = true;
-	        route_changes.isPreviewMode =
+	        route2_changes.isPreviewMode =
 	        /*ispreview*/
 	        ctx[0];
 	        add_flush_callback(function () {
@@ -10326,19 +10970,39 @@ var App = (function () {
 	        });
 	      }
 
-	      if (!updating_data && dirty &
+	      if (!updating_data_1 && dirty &
 	      /*data*/
 	      32) {
-	        updating_data = true;
-	        route_changes.data =
+	        updating_data_1 = true;
+	        route2_changes.data =
 	        /*data*/
 	        ctx[5];
 	        add_flush_callback(function () {
-	          return updating_data = false;
+	          return updating_data_1 = false;
 	        });
 	      }
 
-	      route.$set(route_changes);
+	      if (!updating_elemWidth && dirty &
+	      /*elWidth*/
+	      4) {
+	        updating_elemWidth = true;
+	        route2_changes.elemWidth =
+	        /*elWidth*/
+	        ctx[2];
+	        add_flush_callback(function () {
+	          return updating_elemWidth = false;
+	        });
+	      }
+
+	      route2.$set(route2_changes);
+
+	      if (dirty &
+	      /*contentBreakpoint*/
+	      64) {
+	        toggle_class(div0, "contentBreakpoint",
+	        /*contentBreakpoint*/
+	        ctx[6]);
+	      }
 
 	      if (!current || dirty &
 	      /*currentBreakpoint*/
@@ -10351,21 +11015,24 @@ var App = (function () {
 	    i: function i(local) {
 	      if (current) return;
 	      transition_in(header.$$.fragment, local);
-	      transition_in(if_block);
-	      transition_in(route.$$.fragment, local);
+	      transition_in(route0.$$.fragment, local);
+	      transition_in(route1.$$.fragment, local);
+	      transition_in(route2.$$.fragment, local);
 	      current = true;
 	    },
 	    o: function o(local) {
 	      transition_out(header.$$.fragment, local);
-	      transition_out(if_block);
-	      transition_out(route.$$.fragment, local);
+	      transition_out(route0.$$.fragment, local);
+	      transition_out(route1.$$.fragment, local);
+	      transition_out(route2.$$.fragment, local);
 	      current = false;
 	    },
 	    d: function d(detaching) {
 	      if (detaching) detach(div1);
 	      destroy_component(header);
-	      if (if_block) if_block.d();
-	      destroy_component(route);
+	      destroy_component(route0);
+	      destroy_component(route1);
+	      destroy_component(route2);
 	      div1_resize_listener();
 	    }
 	  };
@@ -10378,7 +11045,7 @@ var App = (function () {
 	    props: {
 	      history:
 	      /*memoryHistory*/
-	      ctx[6],
+	      ctx[7],
 	      $$slots: {
 	        default: [create_default_slot]
 	      },
@@ -10403,8 +11070,8 @@ var App = (function () {
 	      var router_changes = {};
 
 	      if (dirty &
-	      /*$$scope, currentBreakpoint, elWidth, token, filters, ispreview, data*/
-	      65599) {
+	      /*$$scope, currentBreakpoint, elWidth, contentBreakpoint, token, filters, ispreview, data*/
+	      262271) {
 	        router_changes.$$scope = {
 	          dirty: dirty,
 	          ctx: ctx
@@ -10429,6 +11096,8 @@ var App = (function () {
 	}
 
 	function instance($$self, $$props, $$invalidate) {
+	  var contentBreakpoint;
+
 	  var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
 	    function adopt(value) {
 	      return value instanceof P ? value : new P(function (resolve) {
@@ -10463,7 +11132,7 @@ var App = (function () {
 
 	  var token = $$props.token;
 	  var _$$props$ispreview = $$props.ispreview,
-	      ispreview = _$$props$ispreview === void 0 ? false : _$$props$ispreview;
+	      ispreview = _$$props$ispreview === void 0 ? true : _$$props$ispreview;
 	  var elWidth;
 	  var currentBreakpoint;
 	  var memoryHistory = createHistory(createMemorySource());
@@ -10540,19 +11209,24 @@ var App = (function () {
 	    $$invalidate(5, data);
 	  }
 
-	  function route_sidebar_binding(value) {
+	  function route2_sidebar_binding(value) {
 	    filters = value;
 	    $$invalidate(4, filters);
 	  }
 
-	  function route_isPreviewMode_binding(value) {
+	  function route2_isPreviewMode_binding(value) {
 	    ispreview = value;
 	    $$invalidate(0, ispreview);
 	  }
 
-	  function route_data_binding(value) {
+	  function route2_data_binding(value) {
 	    data = value;
 	    $$invalidate(5, data);
+	  }
+
+	  function route2_elemWidth_binding(value) {
+	    elWidth = value;
+	    $$invalidate(2, elWidth);
 	  }
 
 	  function div1_elementresize_handler() {
@@ -10569,6 +11243,12 @@ var App = (function () {
 	    if ($$self.$$.dirty &
 	    /*elWidth*/
 	    4) {
+	      $$invalidate(6, contentBreakpoint = elWidth < 672 ? true : false);
+	    }
+
+	    if ($$self.$$.dirty &
+	    /*elWidth*/
+	    4) {
 	      {
 	        $$invalidate(3, currentBreakpoint = getBpClasses(elWidth));
 	      }
@@ -10581,7 +11261,7 @@ var App = (function () {
 	    }
 	  };
 
-	  return [ispreview, token, elWidth, currentBreakpoint, filters, data, memoryHistory, header_isPreviewMode_binding, route1_data_binding, route_sidebar_binding, route_isPreviewMode_binding, route_data_binding, div1_elementresize_handler];
+	  return [ispreview, token, elWidth, currentBreakpoint, filters, data, contentBreakpoint, memoryHistory, header_isPreviewMode_binding, route1_data_binding, route2_sidebar_binding, route2_isPreviewMode_binding, route2_data_binding, route2_elemWidth_binding, div1_elementresize_handler];
 	}
 
 	var Src = /*#__PURE__*/function (_SvelteElement) {
@@ -10595,7 +11275,7 @@ var App = (function () {
 	    _classCallCheck(this, Src);
 
 	    _this = _super.call(this);
-	    _this.shadowRoot.innerHTML = "<style>@import url(\"https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap\");*,*:before,*:after{box-sizing:border-box;font-family:\"Roboto\", sans-serif}img,video{max-width:100%;height:auto}:host{--pink-color:#ff2473;--orange-color:#ff8200;--white-color:#ffffff;--light-grey-color:#eaf2f4;--light-green-color:#cedfcd;--green-color:#4cb944;--ic-neutral-color:#e5e5e5;--ic-dark-blue-color:#23293d;--ic-grey-color:#7b828a;--ic-orange-color:#ff6425;--ic-light-grey-color:#c8cbcd;--ic-dark-grey-color:#4d5863;--ic-highlighted-color:#ededed;--ic-blue-grey-color:#b8d0d9;--ic-light-blue-color:#dce3e5;--ic-orange-pink-color:linear-gradient(    90.3deg,    var(--orange-color) 0.33%,    var(--pink-color) 99.81%  );font-size:var(--ic-font-size, 125%)}.content{background-color:var(--white-color);display:flex;height:100%}.background{height:100%}.apps-grid{--grid:5;display:grid;gap:1.2em;grid-template-columns:repeat(auto-fit, minmax(max(12.9em, 100% / var(--grid)), 1fr))}.lengthy{width:17.5em}.title-bar.svelte-xb2ngz.svelte-xb2ngz{background-color:var(--white-color);text-align:center;align-items:center;justify-content:center;display:flex;box-shadow:0px 2px 6px rgba(0, 0, 0, 0.15);padding:1em;color:var(--ic-dark-grey-color);font-style:normal;font-weight:normal;line-height:2em;position:relative}@media(max-width: 42em){.title-bar.svelte-xb2ngz.svelte-xb2ngz{display:flex;flex-direction:column}}.title-bar.svelte-xb2ngz .title.svelte-xb2ngz{font-size:1.6em;flex:1;display:flex;justify-content:center;transform:translateX(3em)}@media(max-width: 42rem){.title-bar.svelte-xb2ngz .title.svelte-xb2ngz{transform:translateX(0)}}.title-bar.svelte-xb2ngz .flows-link.svelte-xb2ngz{cursor:pointer;float:right;font-size:0.8em;font-weight:600;padding-right:2.2em}.title-bar.svelte-xb2ngz .flows-link.svelte-xb2ngz:hover{color:var(--orange-color)}.title-bar.svelte-xb2ngz .active.svelte-xb2ngz{padding-right:2.2em;color:var(--orange-color)}div.svelte-19gfewk{display:flex;margin-top:30%;width:100%;justify-content:center}.main-container{padding:1.2em 2em;width:100%}.main-container .back-button{margin-bottom:1.2em;cursor:pointer;display:inline-block}.main-container .component{display:flex;flex-direction:row;margin-bottom:2.3em}.main-container .component img{margin-right:1.6em;width:6em;height:6em}.main-container .component .component-content h2{font-style:normal;font-weight:bold;font-size:1.2em;line-height:1.8em;margin-bottom:0.8em}.main-container .component .component-content p{font-style:normal;font-weight:300;font-size:0.7em;line-height:1em;margin-top:0;margin-bottom:1em}.main-container h3{font-style:normal;font-weight:normal;font-size:1.2em;line-height:1.8em;margin-bottom:0.8em}.main-container .collections-grid{display:flex;margin-bottom:1.2em}.main-container .collections-grid>div{margin-right:0.4em}.main-container .apps-grid{--grid:4;display:grid;grid-template-columns:repeat(var(--grid), minmax(198px, 100%));gap:24px}.main-container .apps-grid.bp-xs{--grid:1}.main-container .apps-grid.bp-sm{--grid:2}.main-container .apps-grid.bp-md{--grid:3}.main-container .apps-grid.bp-lg{--grid:4}.main-container .apps-grid.bg-xl{--grid:4}.main-container{padding:1.2em 2em;width:100%}.main-container .back-button{margin-bottom:1.2em;cursor:pointer;display:inline-block}.main-container h3{font-style:normal;font-weight:normal;font-size:1.2em;line-height:1.8em;margin-bottom:0.8em}.main-container .apps-grid{--grid:4;display:grid;grid-template-columns:repeat(var(--grid), minmax(198px, 100%));gap:24px}.main-container .apps-grid.bp-xs{--grid:1}.main-container .apps-grid.bp-sm{--grid:2}.main-container .apps-grid.bp-md{--grid:3}.main-container .apps-grid.bp-lg{--grid:4}.main-container .apps-grid.bg-xl{--grid:4}div.svelte-1x7nw2l{width:100%;color:var(--ic-dark-blue-color);font-weight:300;font-size:0.8em;line-height:1.2em;border-radius:0.2em;padding:0.3em 0.4em;cursor:pointer}div.selected.svelte-1x7nw2l{background-color:var(--ic-grey-color);color:var(--white-color)}div.svelte-1x7nw2l:hover{background-color:var(--ic-light-grey-color);color:var(--ic-dark-blue-color)}.token.svelte-18ileth.svelte-18ileth{align-items:center;background-color:var(--white-color);border-radius:1.25em;display:flex;padding:0.3em 0.6em;border:1px solid var(--ic-dark-grey-color);height:1.6em;white-space:nowrap;width:fit-content;color:var(--ic-dark-grey-color)}.token.selected.svelte-18ileth.svelte-18ileth{color:var(--white-color);background-color:var(--ic-dark-grey-color)}.token.svelte-18ileth span.svelte-18ileth{font-size:0.7em}.token.svelte-18ileth.svelte-18ileth:hover{background-color:var(--ic-dark-grey-color);cursor:pointer;color:var(--white-color)}.token-remove.svelte-18ileth.svelte-18ileth{align-items:center;border-radius:50%;display:flex;justify-content:center;height:0.75em;width:0.75em;margin-left:0.25em}.token-remove.svelte-18ileth.svelte-18ileth:hover{background-color:var(--ic-grey-color);cursor:pointer;color:var(--white-color)}.card.svelte-17ekldz{background:var(--white-color);border:1px solid var(--white-color);box-sizing:border-box;box-shadow:0 0.2em 0.45em 0.05em rgba(0, 0, 0, 0.15);border-radius:0.4em;flex:none;order:0;align-self:stretch;flex-grow:1;width:100%}.inner.svelte-17ekldz{padding:0.8em;display:flex}.text.svelte-17ekldz{margin-left:0.8em;display:flex;flex-direction:column}.header.svelte-17ekldz{font-weight:bold;font-size:0.9em;line-height:1.24em;-webkit-box-orient:vertical;display:block;display:-webkit-box;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:1}.description.svelte-17ekldz{font-weight:300;font-size:0.7em;line-height:1em;height:3em;-webkit-box-orient:vertical;display:block;display:-webkit-box;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:3}img.svelte-17ekldz{height:3em;width:3em}button.svelte-pxzbhs.svelte-pxzbhs{border:1px solid transparent;outline:0;font-weight:600;font-size:0.8em;width:auto;text-align:center;min-height:1.8em;border-radius:1.25em;line-height:1.2em;padding:0.3em 0.6em;background:transparent}button.svelte-pxzbhs.svelte-pxzbhs:hover{cursor:pointer}button.full-width.svelte-pxzbhs.svelte-pxzbhs{width:100%}button.primary.svelte-pxzbhs.svelte-pxzbhs{background:var(--orange-color);color:var(--white-color)}button.primary.svelte-pxzbhs.svelte-pxzbhs:hover{border:1px solid var(--white-color);background:var(--ic-orange-color)}button.primary.svelte-pxzbhs.svelte-pxzbhs:active{background:var(--ic-orange-pink-color);border:1px solid transparent}button.secondary.svelte-pxzbhs.svelte-pxzbhs{border:1px solid var(--ic-dark-grey-color);color:var(--ic-dark-grey-color)}button.secondary.svelte-pxzbhs.svelte-pxzbhs:hover{background:var(--light-grey-color);border:1px solid var(--ic-dark-grey-color)}button.secondary.svelte-pxzbhs.svelte-pxzbhs:active{background:var(--orange-color);border:1px solid var(--ic-dark-grey-color)}button.text-only.svelte-pxzbhs.svelte-pxzbhs{color:var(--ic-dark-grey-color)}button.text-only.svelte-pxzbhs.svelte-pxzbhs:hover{background:var(--light-grey-color)}button.text-only.svelte-pxzbhs.svelte-pxzbhs:active{color:var(--orange-color)}button.svelte-pxzbhs>div.svelte-pxzbhs{justify-content:center;display:flex;align-items:center}.switch.svelte-10zcw5p.svelte-10zcw5p.svelte-10zcw5p{position:relative;cursor:pointer;user-select:none;display:inline-flex}.switch.svelte-10zcw5p input.svelte-10zcw5p.svelte-10zcw5p{position:absolute;opacity:0;left:0;z-index:-1;border:1px solid var(--ic-blue-grey-color)}.switch.svelte-10zcw5p input.svelte-10zcw5p+.check.svelte-10zcw5p{display:flex;align-items:center;flex-shrink:0;width:2em;height:1em;padding:0.2em;border-radius:0.75em;transition:background 0.15s ease-out}.switch.svelte-10zcw5p input.svelte-10zcw5p+.check.svelte-10zcw5p::before{content:\"\";left:-0.25rem;border-radius:1em;width:1.2em;height:1.2em;position:absolute;background:var(--ic-blue-grey-color);transition:transform 0.15s ease-out, width 0.15s ease-out;will-change:transform}.switch.svelte-10zcw5p input.svelte-10zcw5p:not(:checked)+.check.svelte-10zcw5p{background-color:var(--ic-light-blue-color);border:1px solid var(--ic-blue-grey-color)}.switch.svelte-10zcw5p input.svelte-10zcw5p:not(:checked)+.check.svelte-10zcw5p:hover{background:var(--light-green-color)}.switch.svelte-10zcw5p input.svelte-10zcw5p:not(:checked)+.check.svelte-10zcw5p:hover::before{transform:translate3d(0.4em, 0, 0)}.switch.svelte-10zcw5p input.svelte-10zcw5p:checked+.check.svelte-10zcw5p{background-color:var(--light-green-color);border:1px solid var(--green-color)}.switch.svelte-10zcw5p input.svelte-10zcw5p:checked+.check.svelte-10zcw5p::before{transform:translate3d(100%, 0, 0);background:var(--green-color)}div.card.svelte-buh1i1.svelte-buh1i1{background-color:var(--white-color);border:1px solid var(--white-color);border-radius:0.4em;box-shadow:0 0.2em 0.45em 0.05em rgba(0, 0, 0, 0.15);height:fit-content;width:100%}div.card.svelte-buh1i1 div.content.svelte-buh1i1{padding:1.2em;display:flex;flex-direction:column}div.card.svelte-buh1i1 div.content div.images.svelte-buh1i1{background-color:var(--white-color);box-shadow:inset 0px 1px 3px rgba(0, 0, 0, 0.25);border-radius:0.2em;padding:0.2em 0.4em;display:inline-block;width:fit-content}div.card.svelte-buh1i1 div.content div.images img.svelte-buh1i1{width:1.2em;height:1.2em;max-width:100%;margin-right:0.4em}div.card.svelte-buh1i1 div.content div.images img.svelte-buh1i1:last-of-type{margin-right:0}div.card.svelte-buh1i1 div.content div.description.svelte-buh1i1{margin-top:1.2em;font-weight:300;font-size:0.9em;line-height:1.4em;height:5.45em;-webkit-box-orient:vertical;display:block;display:-webkit-box;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:4}div.card.svelte-buh1i1 div.footer.svelte-buh1i1{border-top:1px solid var(--ic-highlighted-color);padding:0.7em 1.2em;color:var(--dark-blue-color);font-weight:300;font-size:0.8em;line-height:1.2em;display:flex;align-items:center;justify-content:flex-end}div.card.svelte-buh1i1 div.footer span.svelte-buh1i1{margin-right:0.8em}.modal.svelte-8r0way.svelte-8r0way.svelte-8r0way{background-color:var(--white-color);position:fixed;display:flex;align-items:center;justify-content:center;z-index:1000;width:100vw;height:100vh;top:0;left:0;overflow:auto}.modal-wrap.svelte-8r0way.svelte-8r0way.svelte-8r0way{position:relative;margin:90px 94px 90px 94px;max-height:100%;width:100%}.modal-wrapper.svelte-8r0way.svelte-8r0way.svelte-8r0way{background:var(--white-color);border:1px solid var(--white-color);box-sizing:border-box;box-shadow:0px 4px 9px 1px rgba(0, 0, 0, 0.15);border-radius:25px;padding:24px;max-height:100%;width:100%}.modal-wrapper.svelte-8r0way>svg{cursor:pointer}.modal-wrapper.big.svelte-8r0way.svelte-8r0way.svelte-8r0way{width:1200px}.modal-wrapper.small.svelte-8r0way.svelte-8r0way.svelte-8r0way{width:15rem}.modal-wrapper.medium.svelte-8r0way.svelte-8r0way.svelte-8r0way{width:27rem}.close.svelte-8r0way.svelte-8r0way.svelte-8r0way:hover{font-weight:bold}.above.svelte-8r0way.svelte-8r0way.svelte-8r0way{z-index:20000}.container.svelte-8r0way.svelte-8r0way.svelte-8r0way{padding:20px;margin:0 auto;height:80%;display:flex;flex-direction:column}.content.svelte-8r0way.svelte-8r0way.svelte-8r0way{height:fit-content;width:400px;padding:24px;display:flex;margin:0 auto}.content.svelte-8r0way>.img-container.svelte-8r0way.svelte-8r0way{padding:16px;box-shadow:inset 0px 1px 3px rgba(0, 0, 0, 0.25);border-radius:4px}.content.svelte-8r0way>.img-container.svelte-8r0way>img.svelte-8r0way{width:60px;height:60px}.content.svelte-8r0way>.text-button.svelte-8r0way.svelte-8r0way{padding-left:24px}.content.svelte-8r0way>.text-button.svelte-8r0way>span.svelte-8r0way{font-size:24px;line-height:28px;font-weight:300}.content.svelte-8r0way>.text-button.svelte-8r0way>button{margin-top:28px}span.icon.svelte-8r0way.svelte-8r0way.svelte-8r0way{align-items:center;margin-left:10px}.dots.svelte-8r0way.svelte-8r0way.svelte-8r0way{display:flex;align-items:center;justify-content:center;margin-top:68px}.dots.svelte-8r0way.svelte-8r0way.svelte-8r0way:not(:first-child){margin-left:16px}.dot.svelte-8r0way.svelte-8r0way.svelte-8r0way{border-radius:50%;background:var(--ic-light-grey-color);width:8px;height:8px;margin-right:16px}.dot-active.svelte-8r0way.svelte-8r0way.svelte-8r0way{border-radius:50%;background:var(--ic-dark-grey-color);width:8px;height:8px;margin-right:16px}div.images.svelte-8r0way.svelte-8r0way.svelte-8r0way{background-color:var(--white-color);box-shadow:inset 0px 1px 3px rgba(0, 0, 0, 0.25);border-radius:4px;padding:4px 8px;display:inline-block;margin-top:32px}div.images.svelte-8r0way img.svelte-8r0way.svelte-8r0way{width:24px;height:24px;max-width:100%;margin-right:8px}div.images.svelte-8r0way img.svelte-8r0way.svelte-8r0way:last-of-type{margin-right:0px}.button-bottom.svelte-8r0way.svelte-8r0way.svelte-8r0way{display:flex;justify-content:center;margin-top:24px}.description.svelte-8r0way.svelte-8r0way.svelte-8r0way{margin-top:32px;font-size:24px;line-height:28px;letter-spacing:0.02em}div.svelte-1biyotc.svelte-1biyotc{position:relative;display:flex;align-items:center}input.svelte-1biyotc.svelte-1biyotc{width:auto;margin:0;height:2em;background:var(--white-color);border:1px solid var(--ic-grey-color);box-sizing:border-box;outline:0;font-size:0.8em;padding:0.4em 0.6em 0.4em 0.6em;color:var(--ic-dark-blue-color);font-weight:300;border-radius:0.2em}input.error.svelte-1biyotc.svelte-1biyotc{border:1px solid red}input.full-width.svelte-1biyotc.svelte-1biyotc{width:100%}input.rounded.svelte-1biyotc.svelte-1biyotc{border-radius:1.25em}input.svelte-1biyotc.svelte-1biyotc::-webkit-input-placeholder,input.svelte-1biyotc.svelte-1biyotc::placeholder,input.svelte-1biyotc.svelte-1biyotc:-ms-input-placeholder{color:var(--ic-dark-blue-color)}input.svelte-1biyotc.svelte-1biyotc:disabled{border:1px solid var(--ic-dark-grey-color);color:var(--ic-dark-grey-color)}div.left.svelte-1biyotc>input.svelte-1biyotc{padding-left:1.3em}div.right.svelte-1biyotc>input.svelte-1biyotc{padding-right:1.3em}div.svelte-1biyotc>span{position:absolute;color:var(--ic-grey-color)}div.left.svelte-1biyotc>span{left:0.75em}div.right.svelte-1biyotc>span{right:0.75em}.circle.svelte-jvcayl{height:var(--size);width:var(--size);border-color:var(--color) transparent var(--color) var(--color);border-width:calc(var(--size) / 15);border-style:solid;border-image:initial;border-radius:50%;animation:var(--duration) linear 0s infinite normal none running svelte-jvcayl-rotate;left:50%}@keyframes svelte-jvcayl-rotate{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}div.sidebar.svelte-18kr5tf.svelte-18kr5tf.svelte-18kr5tf{padding-left:2em;padding-top:5.8em;width:11em;height:100%}div.sidebar.svelte-18kr5tf>.dropdown.svelte-18kr5tf.svelte-18kr5tf{height:1.6em;display:flex;align-items:center}div.sidebar.svelte-18kr5tf>.dropdown.svelte-18kr5tf>span.svelte-18kr5tf{line-height:1.2em;font-size:0.8em;color:var(--ic-grey-color)}div.sidebar.svelte-18kr5tf>.dropdown.svelte-18kr5tf>div.svelte-18kr5tf{margin-left:0.75em;align-items:center;display:flex}div.content.svelte-ti21ll.svelte-ti21ll.svelte-ti21ll{padding:2em;width:100%;display:flex;flex-direction:column;background-color:var(--white-color)}div.content.svelte-ti21ll>.searchbar.svelte-ti21ll.svelte-ti21ll{max-width:44em}div.content.svelte-ti21ll>.featured.svelte-ti21ll.svelte-ti21ll{padding-top:2em;color:var(--ic-dark-grey-color)}div.content.svelte-ti21ll>.featured.svelte-ti21ll>.feature-header.svelte-ti21ll{display:flex;height:1.8em;align-items:center}div.content.svelte-ti21ll>.featured.svelte-ti21ll>.flows-header.svelte-ti21ll{display:flex;height:1.4em;align-items:center;font-size:0.9em;margin-bottom:0.8em}div.content.svelte-ti21ll>.featured.svelte-ti21ll>.cards.svelte-ti21ll{--grid:4;display:grid;margin-top:1.2em;margin-bottom:1.2em;grid-template-columns:repeat(var(--grid), minmax(198px, 100%));gap:24px}div.content.svelte-ti21ll>.featured.svelte-ti21ll>.cards.bp-xs.svelte-ti21ll{--grid:1}div.content.svelte-ti21ll>.featured.svelte-ti21ll>.cards.bp-sm.svelte-ti21ll{--grid:2}div.content.svelte-ti21ll>.featured.svelte-ti21ll>.cards.bp-md.svelte-ti21ll{--grid:3}div.content.svelte-ti21ll>.featured.svelte-ti21ll>.cards.bp-lg.svelte-ti21ll{--grid:4}div.content.svelte-ti21ll>.featured.svelte-ti21ll>.cards.bg-xl.svelte-ti21ll{--grid:4}div.content.svelte-ti21ll>.featured.svelte-ti21ll>.flow-grid.svelte-ti21ll{--grid:4;display:grid;grid-template-columns:repeat(var(--grid), minmax(198px, 100%));gap:24px}div.content.svelte-ti21ll>.featured.svelte-ti21ll>.flow-grid.bp-xs.svelte-ti21ll{--grid:1}div.content.svelte-ti21ll>.featured.svelte-ti21ll>.flow-grid.bp-sm.svelte-ti21ll{--grid:2}div.content.svelte-ti21ll>.featured.svelte-ti21ll>.flow-grid.bp-md.svelte-ti21ll{--grid:3}div.content.svelte-ti21ll>.featured.svelte-ti21ll>.flow-grid.bp-lg.svelte-ti21ll{--grid:4}div.content.svelte-ti21ll>.featured.svelte-ti21ll>.flow-grid.bg-xl.svelte-ti21ll{--grid:4}.inactive.svelte-eiejwr{display:none}div.svelte-n117uy{height:50%;margin:0 auto;display:flex;align-items:center}</style>";
+	    _this.shadowRoot.innerHTML = "<style>@import url(\"https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap\");*,*:before,*:after{box-sizing:border-box;font-family:\"Roboto\", sans-serif}img,video{max-width:100%;height:auto}:host{--pink-color:#ff2473;--orange-color:#ff8200;--white-color:#ffffff;--light-grey-color:#eaf2f4;--light-green-color:#cedfcd;--green-color:#4cb944;--ic-neutral-color:#e5e5e5;--ic-dark-blue-color:#23293d;--ic-grey-color:#7b828a;--ic-orange-color:#ff6425;--ic-light-grey-color:#c8cbcd;--ic-dark-grey-color:#4d5863;--ic-highlighted-color:#ededed;--ic-blue-grey-color:#b8d0d9;--ic-light-blue-color:#dce3e5;--ic-orange-pink-color:linear-gradient(    90.3deg,    var(--orange-color) 0.33%,    var(--pink-color) 99.81%  );font-size:var(--ic-font-size, 125%)}.content{background-color:var(--white-color);display:flex;max-height:100%}.contentBreakpoint{flex-direction:column}.background{height:100%}.apps-grid{--grid:5;display:grid;gap:1.2em;grid-template-columns:repeat(auto-fit, minmax(max(12.9em, 100% / var(--grid)), 1fr))}.lengthy{width:17.5em}div.svelte-19gfewk{display:flex;margin-top:30%;width:100%;justify-content:center}.title-bar.svelte-1lqkwaz.svelte-1lqkwaz{background-color:var(--white-color);text-align:center;align-items:center;justify-content:center;display:flex;box-shadow:0px 2px 6px rgba(0, 0, 0, 0.15);padding:1em;color:var(--ic-dark-grey-color);font-style:normal;font-weight:normal;line-height:2em;position:relative}.title-bar.svelte-1lqkwaz .title.svelte-1lqkwaz{font-size:1.6em;flex:1;display:flex;justify-content:center;transform:translateX(3em)}.title-bar.svelte-1lqkwaz .title-breakpoint.svelte-1lqkwaz{transform:translateX(0)}.title-bar.svelte-1lqkwaz .flows-link.svelte-1lqkwaz{cursor:pointer;float:right;font-size:0.8em;font-weight:600;padding-right:2.2em}.title-bar.svelte-1lqkwaz .link-breakpoint.svelte-1lqkwaz{padding-right:0}.title-bar.svelte-1lqkwaz .flows-link.svelte-1lqkwaz:hover{color:var(--orange-color)}.title-bar.svelte-1lqkwaz .active.svelte-1lqkwaz{padding-right:2.2em;color:var(--orange-color)}.breakpoint.svelte-1lqkwaz.svelte-1lqkwaz{display:flex;flex-direction:column}.main-container{padding:1.2em 2em;width:100%}.main-container .back-button{margin-bottom:1.2em;cursor:pointer;display:inline-block}.main-container .component{display:flex;flex-direction:row;margin-bottom:2.3em}.main-container .component img{margin-right:1.6em;width:6em;height:6em}.main-container .component .component-content h2{font-style:normal;font-weight:bold;font-size:1.2em;line-height:1.8em;margin-bottom:0.8em}.main-container .component .component-content p{font-style:normal;font-weight:300;font-size:0.7em;line-height:1em;margin-top:0;margin-bottom:1em}.main-container h3{font-style:normal;font-weight:normal;font-size:1.2em;line-height:1.8em;margin-bottom:0.8em}.main-container .collections-grid{display:flex;margin-bottom:1.2em}.main-container .collections-grid>div{margin-right:0.4em}.main-container .apps-grid{--grid:4;display:grid;grid-template-columns:repeat(var(--grid), minmax(198px, 100%));gap:24px}.main-container .apps-grid.bp-xs{--grid:1}.main-container .apps-grid.bp-sm{--grid:2}.main-container .apps-grid.bp-md{--grid:3}.main-container .apps-grid.bp-lg{--grid:4}.main-container .apps-grid.bg-xl{--grid:4}.main-container{padding:1.2em 2em;width:100%}.main-container .back-button{margin-bottom:1.2em;cursor:pointer;display:inline-block}.main-container h3{font-style:normal;font-weight:normal;font-size:1.2em;line-height:1.8em;margin-bottom:0.8em}.main-container .apps-grid{--grid:4;display:grid;grid-template-columns:repeat(var(--grid), minmax(198px, 100%));gap:24px}.main-container .apps-grid.bp-xs{--grid:1}.main-container .apps-grid.bp-sm{--grid:2}.main-container .apps-grid.bp-md{--grid:3}.main-container .apps-grid.bp-lg{--grid:4}.main-container .apps-grid.bg-xl{--grid:4}div.svelte-1x7nw2l{width:100%;color:var(--ic-dark-blue-color);font-weight:300;font-size:0.8em;line-height:1.2em;border-radius:0.2em;padding:0.3em 0.4em;cursor:pointer}div.selected.svelte-1x7nw2l{background-color:var(--ic-grey-color);color:var(--white-color)}div.svelte-1x7nw2l:hover{background-color:var(--ic-light-grey-color);color:var(--ic-dark-blue-color)}.token.svelte-18ileth.svelte-18ileth{align-items:center;background-color:var(--white-color);border-radius:1.25em;display:flex;padding:0.3em 0.6em;border:1px solid var(--ic-dark-grey-color);height:1.6em;white-space:nowrap;width:fit-content;color:var(--ic-dark-grey-color)}.token.selected.svelte-18ileth.svelte-18ileth{color:var(--white-color);background-color:var(--ic-dark-grey-color)}.token.svelte-18ileth span.svelte-18ileth{font-size:0.7em}.token.svelte-18ileth.svelte-18ileth:hover{background-color:var(--ic-dark-grey-color);cursor:pointer;color:var(--white-color)}.token-remove.svelte-18ileth.svelte-18ileth{align-items:center;border-radius:50%;display:flex;justify-content:center;height:0.75em;width:0.75em;margin-left:0.25em}.token-remove.svelte-18ileth.svelte-18ileth:hover{background-color:var(--ic-grey-color);cursor:pointer;color:var(--white-color)}.card.svelte-6sh7vr{background:var(--white-color);border:1px solid var(--white-color);box-sizing:border-box;box-shadow:0 0.2em 0.45em 0.05em rgba(0, 0, 0, 0.15);border-radius:0.4em;flex:none;order:0;align-self:stretch;flex-grow:1;width:100%;cursor:pointer}.inner.svelte-6sh7vr{padding:0.8em;display:flex}.text.svelte-6sh7vr{margin-left:0.8em;display:flex;flex-direction:column}.header.svelte-6sh7vr{font-weight:bold;font-size:0.9em;line-height:1.24em;-webkit-box-orient:vertical;display:block;display:-webkit-box;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:1}.description.svelte-6sh7vr{font-weight:300;font-size:0.7em;line-height:1em;height:3em;-webkit-box-orient:vertical;display:block;display:-webkit-box;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:3}img.svelte-6sh7vr{height:3em;width:3em}button.svelte-pxzbhs.svelte-pxzbhs{border:1px solid transparent;outline:0;font-weight:600;font-size:0.8em;width:auto;text-align:center;min-height:1.8em;border-radius:1.25em;line-height:1.2em;padding:0.3em 0.6em;background:transparent}button.svelte-pxzbhs.svelte-pxzbhs:hover{cursor:pointer}button.full-width.svelte-pxzbhs.svelte-pxzbhs{width:100%}button.primary.svelte-pxzbhs.svelte-pxzbhs{background:var(--orange-color);color:var(--white-color)}button.primary.svelte-pxzbhs.svelte-pxzbhs:hover{border:1px solid var(--white-color);background:var(--ic-orange-color)}button.primary.svelte-pxzbhs.svelte-pxzbhs:active{background:var(--ic-orange-pink-color);border:1px solid transparent}button.secondary.svelte-pxzbhs.svelte-pxzbhs{border:1px solid var(--ic-dark-grey-color);color:var(--ic-dark-grey-color)}button.secondary.svelte-pxzbhs.svelte-pxzbhs:hover{background:var(--light-grey-color);border:1px solid var(--ic-dark-grey-color)}button.secondary.svelte-pxzbhs.svelte-pxzbhs:active{background:var(--orange-color);border:1px solid var(--ic-dark-grey-color)}button.text-only.svelte-pxzbhs.svelte-pxzbhs{color:var(--ic-dark-grey-color)}button.text-only.svelte-pxzbhs.svelte-pxzbhs:hover{background:var(--light-grey-color)}button.text-only.svelte-pxzbhs.svelte-pxzbhs:active{color:var(--orange-color)}button.svelte-pxzbhs>div.svelte-pxzbhs{justify-content:center;display:flex;align-items:center}.switch.svelte-10zcw5p.svelte-10zcw5p.svelte-10zcw5p{position:relative;cursor:pointer;user-select:none;display:inline-flex}.switch.svelte-10zcw5p input.svelte-10zcw5p.svelte-10zcw5p{position:absolute;opacity:0;left:0;z-index:-1;border:1px solid var(--ic-blue-grey-color)}.switch.svelte-10zcw5p input.svelte-10zcw5p+.check.svelte-10zcw5p{display:flex;align-items:center;flex-shrink:0;width:2em;height:1em;padding:0.2em;border-radius:0.75em;transition:background 0.15s ease-out}.switch.svelte-10zcw5p input.svelte-10zcw5p+.check.svelte-10zcw5p::before{content:\"\";left:-0.25rem;border-radius:1em;width:1.2em;height:1.2em;position:absolute;background:var(--ic-blue-grey-color);transition:transform 0.15s ease-out, width 0.15s ease-out;will-change:transform}.switch.svelte-10zcw5p input.svelte-10zcw5p:not(:checked)+.check.svelte-10zcw5p{background-color:var(--ic-light-blue-color);border:1px solid var(--ic-blue-grey-color)}.switch.svelte-10zcw5p input.svelte-10zcw5p:not(:checked)+.check.svelte-10zcw5p:hover{background:var(--light-green-color)}.switch.svelte-10zcw5p input.svelte-10zcw5p:not(:checked)+.check.svelte-10zcw5p:hover::before{transform:translate3d(0.4em, 0, 0)}.switch.svelte-10zcw5p input.svelte-10zcw5p:checked+.check.svelte-10zcw5p{background-color:var(--light-green-color);border:1px solid var(--green-color)}.switch.svelte-10zcw5p input.svelte-10zcw5p:checked+.check.svelte-10zcw5p::before{transform:translate3d(100%, 0, 0);background:var(--green-color)}div.card.svelte-buh1i1.svelte-buh1i1{background-color:var(--white-color);border:1px solid var(--white-color);border-radius:0.4em;box-shadow:0 0.2em 0.45em 0.05em rgba(0, 0, 0, 0.15);height:fit-content;width:100%}div.card.svelte-buh1i1 div.content.svelte-buh1i1{padding:1.2em;display:flex;flex-direction:column}div.card.svelte-buh1i1 div.content div.images.svelte-buh1i1{background-color:var(--white-color);box-shadow:inset 0px 1px 3px rgba(0, 0, 0, 0.25);border-radius:0.2em;padding:0.2em 0.4em;display:inline-block;width:fit-content}div.card.svelte-buh1i1 div.content div.images img.svelte-buh1i1{width:1.2em;height:1.2em;max-width:100%;margin-right:0.4em}div.card.svelte-buh1i1 div.content div.images img.svelte-buh1i1:last-of-type{margin-right:0}div.card.svelte-buh1i1 div.content div.description.svelte-buh1i1{margin-top:1.2em;font-weight:300;font-size:0.9em;line-height:1.4em;height:5.45em;-webkit-box-orient:vertical;display:block;display:-webkit-box;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:4}div.card.svelte-buh1i1 div.footer.svelte-buh1i1{border-top:1px solid var(--ic-highlighted-color);padding:0.7em 1.2em;color:var(--dark-blue-color);font-weight:300;font-size:0.8em;line-height:1.2em;display:flex;align-items:center;justify-content:flex-end}div.card.svelte-buh1i1 div.footer span.svelte-buh1i1{margin-right:0.8em}.modal.svelte-8r0way.svelte-8r0way.svelte-8r0way{background-color:var(--white-color);position:fixed;display:flex;align-items:center;justify-content:center;z-index:1000;width:100vw;height:100vh;top:0;left:0;overflow:auto}.modal-wrap.svelte-8r0way.svelte-8r0way.svelte-8r0way{position:relative;margin:90px 94px 90px 94px;max-height:100%;width:100%}.modal-wrapper.svelte-8r0way.svelte-8r0way.svelte-8r0way{background:var(--white-color);border:1px solid var(--white-color);box-sizing:border-box;box-shadow:0px 4px 9px 1px rgba(0, 0, 0, 0.15);border-radius:25px;padding:24px;max-height:100%;width:100%}.modal-wrapper.svelte-8r0way>svg{cursor:pointer}.modal-wrapper.big.svelte-8r0way.svelte-8r0way.svelte-8r0way{width:1200px}.modal-wrapper.small.svelte-8r0way.svelte-8r0way.svelte-8r0way{width:15rem}.modal-wrapper.medium.svelte-8r0way.svelte-8r0way.svelte-8r0way{width:27rem}.close.svelte-8r0way.svelte-8r0way.svelte-8r0way:hover{font-weight:bold}.above.svelte-8r0way.svelte-8r0way.svelte-8r0way{z-index:20000}.container.svelte-8r0way.svelte-8r0way.svelte-8r0way{padding:20px;margin:0 auto;height:80%;display:flex;flex-direction:column}.content.svelte-8r0way.svelte-8r0way.svelte-8r0way{height:fit-content;width:400px;padding:24px;display:flex;margin:0 auto}.content.svelte-8r0way>.img-container.svelte-8r0way.svelte-8r0way{padding:16px;box-shadow:inset 0px 1px 3px rgba(0, 0, 0, 0.25);border-radius:4px}.content.svelte-8r0way>.img-container.svelte-8r0way>img.svelte-8r0way{width:60px;height:60px}.content.svelte-8r0way>.text-button.svelte-8r0way.svelte-8r0way{padding-left:24px}.content.svelte-8r0way>.text-button.svelte-8r0way>span.svelte-8r0way{font-size:24px;line-height:28px;font-weight:300}.content.svelte-8r0way>.text-button.svelte-8r0way>button{margin-top:28px}span.icon.svelte-8r0way.svelte-8r0way.svelte-8r0way{align-items:center;margin-left:10px}.dots.svelte-8r0way.svelte-8r0way.svelte-8r0way{display:flex;align-items:center;justify-content:center;margin-top:68px}.dots.svelte-8r0way.svelte-8r0way.svelte-8r0way:not(:first-child){margin-left:16px}.dot.svelte-8r0way.svelte-8r0way.svelte-8r0way{border-radius:50%;background:var(--ic-light-grey-color);width:8px;height:8px;margin-right:16px}.dot-active.svelte-8r0way.svelte-8r0way.svelte-8r0way{border-radius:50%;background:var(--ic-dark-grey-color);width:8px;height:8px;margin-right:16px}div.images.svelte-8r0way.svelte-8r0way.svelte-8r0way{background-color:var(--white-color);box-shadow:inset 0px 1px 3px rgba(0, 0, 0, 0.25);border-radius:4px;padding:4px 8px;display:inline-block;margin-top:32px}div.images.svelte-8r0way img.svelte-8r0way.svelte-8r0way{width:24px;height:24px;max-width:100%;margin-right:8px}div.images.svelte-8r0way img.svelte-8r0way.svelte-8r0way:last-of-type{margin-right:0px}.button-bottom.svelte-8r0way.svelte-8r0way.svelte-8r0way{display:flex;justify-content:center;margin-top:24px}.description.svelte-8r0way.svelte-8r0way.svelte-8r0way{margin-top:32px;font-size:24px;line-height:28px;letter-spacing:0.02em}div.svelte-1biyotc.svelte-1biyotc{position:relative;display:flex;align-items:center}input.svelte-1biyotc.svelte-1biyotc{width:auto;margin:0;height:2em;background:var(--white-color);border:1px solid var(--ic-grey-color);box-sizing:border-box;outline:0;font-size:0.8em;padding:0.4em 0.6em 0.4em 0.6em;color:var(--ic-dark-blue-color);font-weight:300;border-radius:0.2em}input.error.svelte-1biyotc.svelte-1biyotc{border:1px solid red}input.full-width.svelte-1biyotc.svelte-1biyotc{width:100%}input.rounded.svelte-1biyotc.svelte-1biyotc{border-radius:1.25em}input.svelte-1biyotc.svelte-1biyotc::-webkit-input-placeholder,input.svelte-1biyotc.svelte-1biyotc::placeholder,input.svelte-1biyotc.svelte-1biyotc:-ms-input-placeholder{color:var(--ic-dark-blue-color)}input.svelte-1biyotc.svelte-1biyotc:disabled{border:1px solid var(--ic-dark-grey-color);color:var(--ic-dark-grey-color)}div.left.svelte-1biyotc>input.svelte-1biyotc{padding-left:1.3em}div.right.svelte-1biyotc>input.svelte-1biyotc{padding-right:1.3em}div.svelte-1biyotc>span{position:absolute;color:var(--ic-grey-color)}div.left.svelte-1biyotc>span{left:0.75em}div.right.svelte-1biyotc>span{right:0.75em}.circle.svelte-jvcayl{height:var(--size);width:var(--size);border-color:var(--color) transparent var(--color) var(--color);border-width:calc(var(--size) / 15);border-style:solid;border-image:initial;border-radius:50%;animation:var(--duration) linear 0s infinite normal none running svelte-jvcayl-rotate;left:50%}@keyframes svelte-jvcayl-rotate{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}div.sidebar.svelte-sj19gz.svelte-sj19gz.svelte-sj19gz{padding-left:2em;padding-top:5.8em;width:11em;height:100%}div.sidebar.svelte-sj19gz>.dropdown.svelte-sj19gz.svelte-sj19gz{height:1.6em;display:flex;align-items:center}div.sidebar.svelte-sj19gz>.dropdown.svelte-sj19gz>span.svelte-sj19gz{line-height:1.2em;font-size:0.8em;color:var(--ic-grey-color)}div.sidebar.svelte-sj19gz>.dropdown.svelte-sj19gz>div.svelte-sj19gz{margin-left:0.75em;align-items:center;display:flex}div.breakpoint.svelte-sj19gz.svelte-sj19gz.svelte-sj19gz{padding:2em 2em 0 2em;margin:0 auto;width:100%;height:fit-content}div.content.svelte-nccfsr.svelte-nccfsr.svelte-nccfsr{padding:2em;width:100%;display:flex;flex-direction:column;background-color:var(--white-color)}div.content.svelte-nccfsr>.searchbar.svelte-nccfsr.svelte-nccfsr{max-width:44em}div.content.svelte-nccfsr>.featured.svelte-nccfsr.svelte-nccfsr{padding-top:2em;color:var(--ic-dark-grey-color)}div.content.svelte-nccfsr>.featured.svelte-nccfsr>.feature-header.svelte-nccfsr{display:flex;height:1.8em;align-items:center}div.content.svelte-nccfsr>.featured.svelte-nccfsr>.integrations-header.svelte-nccfsr{display:flex;height:1.4em;align-items:center;font-size:0.9em;margin-bottom:0.8em}div.content.svelte-nccfsr>.featured.svelte-nccfsr>.cards.svelte-nccfsr{--grid:4;display:grid;margin-top:1.2em;margin-bottom:1.2em;grid-template-columns:repeat(var(--grid), minmax(198px, 100%));gap:24px}div.content.svelte-nccfsr>.featured.svelte-nccfsr>.cards.bp-xs.svelte-nccfsr{--grid:1}div.content.svelte-nccfsr>.featured.svelte-nccfsr>.cards.bp-sm.svelte-nccfsr{--grid:2}div.content.svelte-nccfsr>.featured.svelte-nccfsr>.cards.bp-md.svelte-nccfsr{--grid:3}div.content.svelte-nccfsr>.featured.svelte-nccfsr>.cards.bp-lg.svelte-nccfsr{--grid:4}div.content.svelte-nccfsr>.featured.svelte-nccfsr>.cards.bg-xl.svelte-nccfsr{--grid:4}div.content.svelte-nccfsr>.featured.svelte-nccfsr>.integrations-grid.svelte-nccfsr{--grid:4;display:grid;grid-template-columns:repeat(var(--grid), minmax(198px, 100%));gap:24px}div.content.svelte-nccfsr>.featured.svelte-nccfsr>.integrations-grid.bp-xs.svelte-nccfsr{--grid:1}div.content.svelte-nccfsr>.featured.svelte-nccfsr>.integrations-grid.bp-sm.svelte-nccfsr{--grid:2}div.content.svelte-nccfsr>.featured.svelte-nccfsr>.integrations-grid.bp-md.svelte-nccfsr{--grid:3}div.content.svelte-nccfsr>.featured.svelte-nccfsr>.integrations-grid.bp-lg.svelte-nccfsr{--grid:4}div.content.svelte-nccfsr>.featured.svelte-nccfsr>.integrations-grid.bg-xl.svelte-nccfsr{--grid:4}.inactive.svelte-eiejwr{display:none}div.svelte-n117uy{height:50%;margin:0 auto;display:flex;align-items:center}</style>";
 	    init(_assertThisInitialized(_this), {
 	      target: _this.shadowRoot,
 	      props: attribute_to_object(_this.attributes),
